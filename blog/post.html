@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="fr-CH">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Article Nat'Patoune</title>
+  <meta name="description" content="Article de blog Nat'Patoune." />
+  <link rel="icon" type="image/png" href="../assets/img/favicon-natpatoune-chat.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="../assets/css/site.css" />
+  <link rel="stylesheet" href="../assets/css/markdown.min.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a href="../index.html" class="brand">
+        <img src="../assets/img/logo-natpatoune.svg" alt="Nat'Patoune" class="brand__logo" width="120" height="60" />
+        <span class="brand__name">Nat'Patoune</span>
+      </a>
+      <nav class="site-nav" aria-label="Navigation article">
+        <ul class="site-nav__list">
+          <li><a href="index.html">Blog</a></li>
+        </ul>
+        <a href="../index.html#contact" class="btn btn--primary btn--small">Contact</a>
+      </nav>
+      <a href="index.html" class="btn btn--outline btn--small">Retour</a>
+    </div>
+  </header>
+
+  <main class="section" data-blog-post>
+    <div class="container" style="max-width: 800px;">
+      <a href="index.html" class="btn btn--outline btn--small">&larr; Retour au blog</a>
+      <div style="margin-top: 1.5rem;">
+        <p class="section__kicker" data-post-category></p>
+        <h1 class="heading heading--lg" data-post-title>Chargement...</h1>
+        <p style="color: #666;">Publié le <span data-post-date></span></p>
+      </div>
+      <div style="margin-top: 2rem;" class="card">
+        <img data-post-cover src="" alt="" loading="lazy" style="height: 280px; width: 100%; object-fit: cover; border-radius: 18px;" />
+      </div>
+      <div class="markdown" style="margin-top: 2.5rem;" data-post-content></div>
+
+      <section class="section section--cream" style="padding: 2.5rem; border-radius: 24px; box-shadow: var(--shadow); margin-top: 3rem;">
+        <div class="newsletter" style="box-shadow: none; padding: 0;">
+          <div class="newsletter__content">
+            <p class="section__kicker">Newsletter</p>
+            <h2 class="heading heading--md">Recevez nos conseils félins chaque mois</h2>
+            <p>Des astuces pratiques, des checklists et les nouveautés Nat'Patoune dans votre boîte mail.</p>
+          </div>
+          <form class="newsletter-form" action="https://formspree.io/f/your-id" method="POST" data-redirect="../merci.html">
+            <div class="newsletter__fields">
+              <input type="email" name="email" required placeholder="Votre email" />
+              <button type="submit" class="btn btn--primary">Je m'inscris</button>
+            </div>
+            <label class="checkbox">
+              <input type="checkbox" name="consentement" required />
+              <span>J'accepte de recevoir la newsletter Nat'Patoune et je peux me désinscrire à tout moment.</span>
+            </label>
+            <input type="hidden" name="_subject" value="Nouvelle inscription newsletter - Article" />
+            <p class="newsletter-message" data-newsletter-message></p>
+          </form>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container site-footer__grid">
+      <div>
+        <img src="../assets/img/logo-natpatoune.svg" alt="Nat'Patoune" class="site-footer__logo" />
+        <p>Nat'Patoune, cat-sitting professionnel dans le canton de Vaud.</p>
+      </div>
+      <div>
+        <h2 class="heading heading--sm">Navigation</h2>
+        <ul>
+          <li><a href="../index.html">Accueil</a></li>
+          <li><a href="index.html">Blog</a></li>
+          <li><a href="../index.html#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="heading heading--sm">Contact</h2>
+        <p>Email : <a href="mailto:miaou@nat-patoune.ch">miaou@nat-patoune.ch</a></p>
+        <p>Téléphone : <a href="tel:+41787685047">+41 78 768 50 47</a></p>
+      </div>
+    </div>
+    <div class="container site-footer__bottom">
+      <p>&copy; 2025 Nat'Patoune. Tous droits réservés.</p>
+      <p>Site créé par Agence Clicom.ch</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="../assets/js/blog.js" defer></script>
+  <script src="../assets/js/newsletter.js" defer></script>
+</body>
+</html>

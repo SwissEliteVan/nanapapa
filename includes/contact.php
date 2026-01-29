@@ -15,14 +15,16 @@
                     <div class="space-y-4">
                         <input type="text" id="contactNom" name="nom" placeholder="Nom & Prénom" class="w-full p-3 bg-gray-50 rounded-xl border-none focus:ring-2 focus:ring-brand-purple outline-none" required>
                         <input type="email" id="contactEmail" name="email" placeholder="Email" class="w-full p-3 bg-gray-50 rounded-xl border-none focus:ring-2 focus:ring-brand-purple outline-none" required>
-                        <input type="text" id="contactVille" name="ville" placeholder="Ville" class="w-full p-3 bg-gray-50 rounded-xl border-none focus:ring-2 focus:ring-brand-purple" required>
+                        <input type="text" id="contactVille" name="ville" placeholder="Ville (ex: Lausanne)" class="w-full p-3 bg-gray-50 rounded-xl border-none focus:ring-2 focus:ring-brand-purple" required>
+                        <input type="tel" id="contactTelephone" name="telephone" placeholder="Téléphone" class="w-full p-3 bg-gray-50 rounded-xl border-none focus:ring-2 focus:ring-brand-purple" required>
                         <div class="flex gap-2">
-                            <input type="text" id="contactDates" name="dates" placeholder="Dates" class="w-1/2 p-3 bg-gray-50 rounded-xl border-none focus:ring-2 focus:ring-brand-purple">
                             <select id="contactChats" name="chats" class="w-1/2 p-3 bg-gray-50 rounded-xl border-none focus:ring-2 focus:ring-brand-purple text-gray-500">
                                 <option>1 chat</option><option>2 chats</option><option>3+ chats</option>
                             </select>
+                            <input type="text" id="contactDateDebut" name="date_debut" placeholder="jj.mm.aaaa" class="w-1/2 p-3 bg-gray-50 rounded-xl border-none focus:ring-2 focus:ring-brand-purple">
                         </div>
-                        <textarea name="message" id="message" rows="3" placeholder="Message..." class="w-full p-3 bg-gray-50 rounded-xl border-none focus:ring-2 focus:ring-brand-purple" required></textarea>
+                        <input type="text" id="contactDateFin" name="date_fin" placeholder="jj.mm.aaaa" class="w-full p-3 bg-gray-50 rounded-xl border-none focus:ring-2 focus:ring-brand-purple">
+                        <textarea name="message" id="message" rows="3" placeholder="Message" class="w-full p-3 bg-gray-50 rounded-xl border-none focus:ring-2 focus:ring-brand-purple" required></textarea>
                         <button type="submit" class="w-full bg-brand-purple text-white font-bold py-3 rounded-xl hover:bg-brand-purple-dark transition">Envoyer</button>
                     </div>
                 </form>

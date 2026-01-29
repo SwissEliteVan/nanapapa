@@ -1,3 +1,7 @@
+<?php
+$pageDescription = $pageDescription
+    ?? "Service de cat-sitting et de gestion de domicile par Nathalie Piguet. Garde de chats et vigilance maison : Morges, Lausanne, Échallens.";
+?>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -20,7 +24,7 @@
 
     <!-- Métadonnées SEO -->
     <title>Nat'Patoune - Garde de chats & Gestion de domicile | Vaud</title>
-    <meta name="description" content="Service de cat-sitting et de gestion de domicile par Nathalie Piguet. Garde de chats et vigilance maison : Morges, Lausanne, Échallens.">
+    <meta name="description" content="<?php echo htmlspecialchars($pageDescription, ENT_QUOTES, 'UTF-8'); ?>">
     <meta name="author" content="Nat'Patoune">
     <meta name="robots" content="index, follow">
     

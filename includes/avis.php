@@ -1,11 +1,14 @@
  <!-- Avis -->
     <section id="avis" class="py-20 bg-white">
         <div class="container mx-auto px-4">
-            <div class="text-center mb-12"><h2 class="text-3xl font-title font-bold">Ils me font confiance</h2></div>
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-title font-bold">Ils me font confiance</h2>
+                <p class="mt-3 text-gray-600 text-sm">Des retours authentiques qui soulignent la douceur des visites et la tranquillité d'esprit.</p>
+            </div>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
                 <div class="bg-brand-cream p-8 rounded-3xl shadow-sm flex flex-col h-full hover:shadow-md transition">
                     <div class="flex text-brand-purple mb-4 text-xs"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                    <p class="italic text-gray-600 mb-6 text-sm leading-relaxed flex-grow">"J'ai fait appel à Nat'Patoune pour garder mon bébé chat Uranus et je ne pouvais pas espérer meilleure expérience. Dès le début, elle s'est montrée très attentionnée et professionnelle. J'ai reçu des nouvelles à chaque visite, accompagnées de photos et vidéos, ce qui m'a permis d'être complètement serein pendant mon absence."</p>
+                    <p class="italic text-gray-600 mb-6 text-sm leading-relaxed flex-grow">"Une attention constante et des nouvelles régulières avec photos et vidéos. Une expérience vraiment rassurante."</p>
                     <div class="flex items-center border-t border-brand-purple/10 pt-4">
                         <img src="assets/img/avis-uranus.webp" class="w-14 h-14 rounded-full object-cover border-2 border-white shadow-sm mr-4" alt="Chat Uranus" loading="lazy" width="56" height="56">
                         <div>
@@ -16,7 +19,7 @@
                 </div>
                 <div class="bg-brand-cream p-8 rounded-3xl shadow-sm flex flex-col h-full hover:shadow-md transition">
                     <div class="flex text-brand-purple mb-4 text-xs"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                    <p class="italic text-gray-600 mb-6 text-sm leading-relaxed flex-grow">"Nathalie s'est occupée de Luna une première fois pendant une semaine en mai, puis de nouveau un week-end en août. À chaque fois, tout s'est parfaitement passé. Luna, qui est pourtant de nature prudente, a tout de suite eu un bon contact. Nathalie est attentive et très douce."</p>
+                    <p class="italic text-gray-600 mb-6 text-sm leading-relaxed flex-grow">"Des visites impeccables et une relation de confiance qui s'est installée tout de suite. Très douce et attentive."</p>
                     <div class="flex items-center border-t border-brand-purple/10 pt-4">
                         <img src="assets/img/avis-luna.webp" class="w-14 h-14 rounded-full object-cover border-2 border-white shadow-sm mr-4" alt="Chat Luna" loading="lazy" width="56" height="56">
                         <div>
