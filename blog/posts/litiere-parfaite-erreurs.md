@@ -1,7 +1,5 @@
 La litière influence directement le confort et l'équilibre émotionnel du chat. Un emplacement mal choisi ou un nettoyage irrégulier peut provoquer stress et accidents. Dans cet article, découvrez comment créer la litière parfaite, éviter les erreurs courantes et préserver la sérénité de votre compagnon.
 
-![Chat tigré près d'une litière propre et accessible](../assets/img/galerie-chat-1.webp)
-
 ## Pourquoi la litière est un repère clé
 Le chat est un animal très propre. Sa litière est un point de repère essentiel dans son territoire. Une litière adaptée favorise des comportements naturels et limite le stress.
 

@@ -1,7 +1,5 @@
 Dix minutes de jeu par jour peuvent transformer le comportement d'un chat. La stimulation physique et mentale réduit l'ennui, limite le stress et renforce le lien avec son humain. Dans cet article, découvrez des idées simples, des conseils pratiques et une routine efficace.
 
-![Chat jouant avec un plumeau dans le salon](../assets/img/galerie-chat-2.webp)
-
 ## Pourquoi le jeu est indispensable
 Le chat reste un chasseur, même en intérieur. Sans stimulation, il peut développer de l'ennui, des griffades excessives ou une prise de poids. Le jeu répond à son besoin d'exploration et d'exercice.
 

@@ -1,7 +1,5 @@
 Un chat stressé peut perdre l'appétit, se cacher ou miauler de façon inhabituelle. La garde à domicile est souvent la solution la plus douce, car elle conserve les repères du chat. Dans cet article, vous découvrirez pourquoi cette option réduit l'anxiété, comment préparer une garde sereine et quels détails font vraiment la différence.
 
-![Chat détendu sur un canapé lors d'une garde à domicile](../assets/img/garde-chat-domicile-sans-stress-vaud.webp)
-
 ## Comprendre le stress chez le chat
 Le stress chez le chat apparaît quand ses repères changent trop vite. Les odeurs, les bruits et la disposition des pièces sont sa carte du monde. Modifier cette carte, même temporairement, peut provoquer une tension durable.
 

@@ -1,7 +1,5 @@
 Partir en vacances sans stress, c'est possible quand la garde de votre chat est bien organisée. Dans le canton de Vaud, la garde à domicile permet de préserver la routine féline tout en sécurisant votre maison. Voici un guide complet, clair et pratique pour tout planifier.
 
-![Chat détendu regardant par la fenêtre avant des vacances](../assets/img/cat-sitting-domicile-vacances-suisse.webp)
-
 ## Pourquoi anticiper la garde à domicile
 Les périodes de congés sont très demandées. Réserver tôt vous garantit un créneau et une pré-visite sereine. Cette étape permet de comprendre la routine du chat, de tester les accès et de répondre à vos questions.
 

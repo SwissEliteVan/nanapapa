@@ -1,7 +1,5 @@
 Les chats âgés ou anxieux ont besoin d'une attention particulière. Le moindre changement peut amplifier leurs peurs ou fragiliser leur santé. Le cat-sitting à domicile reste la solution la plus douce pour préserver leur bien-être. Voici un guide complet pour comprendre leurs besoins et organiser une garde adaptée.
 
-![Chat senior reposant dans un environnement familier](../assets/img/cat-sitter-chat-age-anxieux-nat-patoune.webp)
-
 ## Comprendre les besoins des chats seniors
 Un chat senior peut souffrir d'arthrose, de troubles rénaux ou d'une baisse d'appétit. Il a besoin de confort, de calme et d'observations régulières. Un changement d'environnement peut aggraver les symptômes et créer un stress inutile.
 

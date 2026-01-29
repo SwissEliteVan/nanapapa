@@ -1,7 +1,5 @@
 L'hydratation est essentielle pour la santé du chat, mais beaucoup boivent trop peu. Ce manque peut favoriser les troubles urinaires et la fatigue. Dans ce guide, vous trouverez des astuces simples, adaptées à la vie quotidienne, pour encourager votre chat à boire davantage.
 
-![Chat s'approchant d'un bol d'eau fraîche](../assets/img/chaton-cache-couverture.webp)
-
 ## Pourquoi l'hydratation est si importante
 Le chat descend d'ancêtres vivant en milieu aride, ce qui explique sa faible sensation de soif. Pourtant, son organisme a besoin d'eau pour soutenir les reins, la digestion et la régulation thermique.
 
