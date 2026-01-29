@@ -1,0 +1,50 @@
+[
+  {
+    "title": "Pourquoi la garde à domicile réduit-elle le stress de votre chat ?",
+    "date": "2024-09-15",
+    "slug": "garde-domicile-reduit-stress-chat",
+    "excerpt": "La garde à domicile s'avère être une solution apaisante pour les chats, sensibles aux changements de territoire.",
+    "cover": "assets/img/garde-chat-domicile-sans-stress-vaud.webp",
+    "category": "Bien-être"
+  },
+  {
+    "title": "Vacances tranquilles : faire garder son chat à domicile dans le canton de Vaud",
+    "date": "2024-10-02",
+    "slug": "vacances-tranquilles-garde-chat-vaud",
+    "excerpt": "Anticipez la garde à domicile pour partir serein et assurer la routine de votre chat.",
+    "cover": "assets/img/cat-sitting-domicile-vacances-suisse.webp",
+    "category": "Vacances"
+  },
+  {
+    "title": "Chat âgé ou anxieux : pourquoi le cat-sitting est indispensable",
+    "date": "2024-10-10",
+    "slug": "chat-age-anxieux-cat-sitting",
+    "excerpt": "Le cat-sitting à domicile protège les repères des chats seniors ou sensibles.",
+    "cover": "assets/img/cat-sitter-chat-age-anxieux-nat-patoune.webp",
+    "category": "Soins spécifiques"
+  },
+  {
+    "title": "Hydratation du chat : astuces simples pour l'encourager à boire",
+    "date": "2024-10-18",
+    "slug": "hydratation-chat-astuces",
+    "excerpt": "Multiplier les points d'eau et varier les textures aide votre chat à rester hydraté.",
+    "cover": "assets/img/chaton-cache-couverture.webp",
+    "category": "Alimentation"
+  },
+  {
+    "title": "Litière parfaite : emplacement, nettoyage et erreurs à éviter",
+    "date": "2024-11-02",
+    "slug": "litiere-parfaite-erreurs",
+    "excerpt": "Une litière bien placée et entretenue limite le stress et encourage une bonne routine.",
+    "cover": "assets/img/galerie-chat-1.webp",
+    "category": "Hygiène"
+  },
+  {
+    "title": "Jeux et stimulation : 10 minutes par jour qui changent tout",
+    "date": "2024-11-12",
+    "slug": "jeux-stimulation-quotidienne",
+    "excerpt": "Des séances courtes et régulières suffisent pour stimuler votre chat.",
+    "cover": "assets/img/galerie-chat-2.webp",
+    "category": "Jeux"
+  }
+]
