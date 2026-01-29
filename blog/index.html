@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="fr-CH">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Blog Nat'Patoune - Conseils pour chats</title>
+  <meta name="description" content="Articles et conseils Nat'Patoune pour prendre soin de vos chats au quotidien." />
+  <link rel="icon" type="image/png" href="../assets/img/favicon-natpatoune-chat.png" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              purple: '#8F78D3',
+              'purple-dark': '#705eb0',
+              pink: '#f3a6c0',
+              cream: '#fbf7f2',
+              beige: '#f3efe8',
+              text: '#2b2730'
+            }
+          },
+          fontFamily: {
+            title: ['"Playfair Display"', 'serif'],
+            sans: ['Inter', 'system-ui', 'sans-serif']
+          },
+          boxShadow: {
+            soft: '0 18px 45px rgba(17, 12, 46, 0.08)'
+          }
+        }
+      }
+    };
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="../assets/css/site.min.css" />
+</head>
+<body class="bg-brand-cream text-brand-text font-sans">
+  <header class="bg-white/90 backdrop-blur-lg shadow-sm">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+      <a href="../index.html" class="flex items-center gap-3">
+        <img src="../assets/img/logo-natpatoune.svg" alt="Nat'Patoune" class="h-10 w-auto" width="120" height="60" />
+        <span class="font-title text-xl font-bold">Nat'Patoune</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-6 text-sm font-semibold">
+        <a href="../index.html#services" class="hover:text-brand-purple">Services</a>
+        <a href="../index.html#zones-tarifs" class="hover:text-brand-purple">Tarifs</a>
+        <a href="../index.html#contact" class="bg-brand-purple text-white px-4 py-2 rounded-full">Contact</a>
+      </nav>
+      <a href="../index.html" class="md:hidden text-brand-purple font-semibold">Retour</a>
+    </div>
+  </header>
+
+  <main class="py-16 md:py-24">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="text-center mb-12">
+        <p class="text-brand-purple font-semibold uppercase tracking-widest text-xs">Conseils d'experte</p>
+        <h1 class="text-3xl md:text-5xl font-title font-bold mt-3">Blog Nat'Patoune</h1>
+        <p class="text-gray-600 mt-4">Des articles pratiques pour comprendre vos chats et préparer vos absences.</p>
+      </div>
+      <div data-blog-list class="grid gap-8 md:grid-cols-2 lg:grid-cols-3"></div>
+    </div>
+  </main>
+
+  <footer class="bg-brand-text text-white py-12">
+    <div class="max-w-6xl mx-auto px-4 grid gap-8 md:grid-cols-3">
+      <div>
+        <img src="../assets/img/logo-natpatoune.svg" alt="Nat'Patoune" class="h-12 w-auto mb-4" />
+        <p class="text-sm text-white/80">Nat'Patoune, cat-sitting professionnel dans le canton de Vaud.</p>
+      </div>
+      <div>
+        <h2 class="font-semibold mb-3">Navigation</h2>
+        <ul class="space-y-2 text-sm text-white/80">
+          <li><a href="../index.html">Accueil</a></li>
+          <li><a href="../index.html#services">Services</a></li>
+          <li><a href="../index.html#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="font-semibold mb-3">Newsletter</h2>
+        <p class="text-sm text-white/80 mb-3">Recevez les conseils Nat'Patoune.</p>
+        <form class="flex flex-col gap-3 newsletter-form" action="https://formspree.io/f/your-id" method="POST" data-redirect="../merci.html">
+          <input type="email" name="email" required placeholder="Votre email" class="px-3 py-2 rounded-lg text-brand-text" />
+          <label class="flex items-start gap-2 text-xs text-white/80">
+            <input type="checkbox" name="consentement" required class="mt-1" />
+            <span>J'accepte de recevoir des conseils par email.</span>
+          </label>
+          <input type="hidden" name="_subject" value="Nouvelle inscription newsletter - Blog" />
+          <button type="submit" class="px-4 py-2 rounded-lg bg-brand-pink text-brand-text font-semibold">Je m'inscris</button>
+          <p class="newsletter-message text-xs" data-newsletter-message></p>
+        </form>
+      </div>
+    </div>
+    <div class="max-w-6xl mx-auto px-4 mt-8 text-sm text-white/70 flex flex-col md:flex-row justify-between gap-2">
+      <p>&copy; 2025 Nat'Patoune. Tous droits réservés.</p>
+      <p>Site créé par Agence Clicom.ch</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="../assets/js/blog.js" defer></script>
+  <script src="../assets/js/newsletter.js" defer></script>
+</body>
+</html>
