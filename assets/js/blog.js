@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     if (coverEl) {
       coverEl.src = normalizeCover(post.cover);
-      coverEl.alt = post.title;
+      coverEl.alt = post.cover_alt || post.title;
     }
     if (categoryEl) {
       categoryEl.textContent = post.category;
@@ -70,9 +70,9 @@ document.addEventListener('DOMContentLoaded', () => {
       contentEl.innerHTML = window.marked.parse(markdown);
     }
     if (metaDescription) {
-      metaDescription.setAttribute('content', post.excerpt);
+      metaDescription.setAttribute('content', post.meta_description || post.excerpt);
     }
-    document.title = `${post.title} | Nat'Patoune`;
+    document.title = post.meta_title ? `${post.meta_title} | Nat'Patoune` : `${post.title} | Nat'Patoune`;
   };
 
   const renderPostError = (message) => {
