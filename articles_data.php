@@ -119,4 +119,106 @@ HTML,
 HTML,
         ],
     ],
+    [
+        'id' => 'article-4',
+        'card' => [
+            'image' => 'assets/img/chaton-cache-couverture.webp',
+            'image_alt' => 'Chat curieux à la maison',
+            'image_classes' => 'w-full h-full object-cover object-center transition duration-500 group-hover:scale-110',
+            'badge' => 'Alimentation',
+            'title_html' => 'Hydratation du chat : astuces simples pour l\'encourager à boire',
+            'excerpt' => 'Un chat boit parfois trop peu. Fontaine, bols, emplacement… voici des gestes simples pour améliorer son hydratation.',
+        ],
+        'modal' => [
+            'header_category' => 'Alimentation & Hydratation',
+            'read_time' => '5 min',
+            'hero_image' => 'assets/img/chaton-cache-couverture.webp',
+            'hero_alt' => 'Chat curieux près d\'un bol d\'eau',
+            'hero_image_classes' => 'w-full h-full object-cover object-center',
+            'title_classes' => 'text-3xl font-title font-bold text-brand-text mb-4',
+            'title_html' => 'Hydratation du chat : astuces simples pour l\'encourager à boire',
+            'body_html' => <<<'HTML'
+                    <p class="font-medium text-lg text-gray-700 mb-6">L’hydratation est essentielle pour la santé rénale du chat, mais beaucoup boivent trop peu. En variant les points d’eau, en proposant une eau fraîche et en adaptant l’alimentation, on favorise des habitudes plus saines.</p>
+                    <h2 class="text-xl font-bold text-brand-text mt-8 mb-3">Multiplier les points d’eau</h2>
+                    <p>Placez plusieurs bols dans des zones calmes et éloignées de la litière. Les chats aiment avoir le choix et évitent les endroits bruyants.</p>
+                    <h2 class="text-xl font-bold text-brand-text mt-8 mb-3">Eau fraîche et matériaux adaptés</h2>
+                    <p>Un bol en céramique ou en verre retient moins les odeurs. Renouvelez l’eau chaque jour pour garder une eau attractive.</p>
+                    <h2 class="text-xl font-bold text-brand-text mt-8 mb-3">Fontaine et alimentation humide</h2>
+                    <p>Une fontaine stimule souvent la curiosité. L’alimentation humide apporte aussi un apport hydrique important et complète la routine.</p>
+                    <div class="bg-brand-cream p-6 rounded-xl mt-8 border border-brand-purple/20">
+                        <h4 class="font-bold text-brand-purple mb-2">Besoin d’un suivi pendant vos absences ?</h4>
+                        <p class="text-sm">Je surveille l’hydratation et l’appétit de votre chat à chaque visite.</p>
+                        <a href="#contact" onclick="closeModal('{{ARTICLE_ID}}')" class="inline-block mt-4 text-brand-purple font-bold underline hover:text-brand-purple-dark">Parler de vos habitudes →</a>
+                    </div>
+HTML,
+        ],
+    ],
+    [
+        'id' => 'article-5',
+        'card' => [
+            'image' => 'assets/img/galerie-chat-1.webp',
+            'image_alt' => 'Chat détendu à la maison',
+            'image_classes' => 'w-full h-full object-cover transition duration-500 group-hover:scale-110',
+            'badge' => 'Hygiène',
+            'title_html' => 'Litière parfaite : emplacement, nettoyage et erreurs à éviter',
+            'excerpt' => 'Une litière mal placée ou mal entretenue est une source fréquente de stress. Voici les bonnes pratiques.',
+        ],
+        'modal' => [
+            'header_category' => 'Hygiène & Confort',
+            'read_time' => '5 min',
+            'hero_image' => 'assets/img/galerie-chat-1.webp',
+            'hero_alt' => 'Chat tigré près d\'une litière propre',
+            'hero_image_classes' => 'w-full h-full object-cover',
+            'title_classes' => 'text-3xl font-title font-bold text-brand-text mb-4',
+            'title_html' => 'Litière parfaite : emplacement, nettoyage et erreurs à éviter',
+            'body_html' => <<<'HTML'
+                    <p class="font-medium text-lg text-gray-700 mb-6">La litière est un repère essentiel. Un bac propre, bien placé et adapté au chat limite le stress et les accidents. Quelques réglages simples suffisent pour éviter la plupart des refus.</p>
+                    <h2 class="text-xl font-bold text-brand-text mt-8 mb-3">Choisir le bon emplacement</h2>
+                    <p>Optez pour une zone calme, accessible et éloignée de la nourriture. Évitez les endroits bruyants ou trop passants.</p>
+                    <h2 class="text-xl font-bold text-brand-text mt-8 mb-3">Routine de nettoyage</h2>
+                    <p>Retirez les déjections chaque jour et nettoyez le bac régulièrement avec un produit doux. La propreté est la clé.</p>
+                    <h2 class="text-xl font-bold text-brand-text mt-8 mb-3">Éviter les erreurs courantes</h2>
+                    <p>Un bac trop petit, un couvercle mal accepté ou des parfums trop forts peuvent provoquer un rejet. Observez les préférences de votre chat.</p>
+                    <div class="bg-brand-cream p-6 rounded-xl mt-8 border border-brand-purple/20">
+                        <h4 class="font-bold text-brand-purple mb-2">Besoin d’une routine stable ?</h4>
+                        <p class="text-sm">Je maintiens une litière propre et rassurante pendant vos absences.</p>
+                        <a href="#contact" onclick="closeModal('{{ARTICLE_ID}}')" class="inline-block mt-4 text-brand-purple font-bold underline hover:text-brand-purple-dark">Organiser une garde →</a>
+                    </div>
+HTML,
+        ],
+    ],
+    [
+        'id' => 'article-6',
+        'card' => [
+            'image' => 'assets/img/galerie-chat-2.webp',
+            'image_alt' => 'Chat en exploration',
+            'image_classes' => 'w-full h-full object-cover transition duration-500 group-hover:scale-110',
+            'badge' => 'Jeux',
+            'title_html' => 'Jeux et stimulation : 10 minutes par jour qui changent tout',
+            'excerpt' => 'Même un chat calme a besoin de stimulation. Quelques minutes de jeu structurées suffisent à réduire l’ennui.',
+        ],
+        'modal' => [
+            'header_category' => 'Jeux & Stimulation',
+            'read_time' => '5 min',
+            'hero_image' => 'assets/img/galerie-chat-2.webp',
+            'hero_alt' => 'Chat joueur avec un plumeau',
+            'hero_image_classes' => 'w-full h-full object-cover',
+            'title_classes' => 'text-3xl font-title font-bold text-brand-text mb-4',
+            'title_html' => 'Jeux et stimulation : 10 minutes par jour qui changent tout',
+            'body_html' => <<<'HTML'
+                    <p class="font-medium text-lg text-gray-700 mb-6">Le jeu répond au besoin instinctif de chasse du chat. Une routine courte et régulière réduit l’ennui, soutient la forme physique et renforce la relation.</p>
+                    <h2 class="text-xl font-bold text-brand-text mt-8 mb-3">Structurer la séance</h2>
+                    <p>Alternez mouvements rapides et pauses. Terminez toujours par une proie attrapable pour éviter la frustration.</p>
+                    <h2 class="text-xl font-bold text-brand-text mt-8 mb-3">Varier les jouets</h2>
+                    <p>Canne à plume, balles légères, jouets distributeurs : la variété maintient la motivation du chat.</p>
+                    <h2 class="text-xl font-bold text-brand-text mt-8 mb-3">Adapter au tempérament</h2>
+                    <p>Un chat senior préférera des jeux lents au sol. Un chat actif aura besoin de sessions plus dynamiques.</p>
+                    <div class="bg-brand-cream p-6 rounded-xl mt-8 border border-brand-purple/20">
+                        <h4 class="font-bold text-brand-purple mb-2">Maintenir la routine de jeu ?</h4>
+                        <p class="text-sm">Je propose des séances adaptées pour stimuler votre chat pendant vos absences.</p>
+                        <a href="#contact" onclick="closeModal('{{ARTICLE_ID}}')" class="inline-block mt-4 text-brand-purple font-bold underline hover:text-brand-purple-dark">Prévoir une visite →</a>
+                    </div>
+HTML,
+        ],
+    ],
 ];

@@ -3,48 +3,66 @@
     "title": "Pourquoi la garde à domicile réduit-elle le stress de votre chat ?",
     "date": "2024-09-15",
     "slug": "garde-domicile-reduit-stress-chat",
-    "excerpt": "La garde à domicile s'avère être une solution apaisante pour les chats, sensibles aux changements de territoire.",
+    "excerpt": "La garde à domicile est l'option la plus douce pour préserver les repères de votre chat sensible au stress.",
+    "meta_title": "Garde à domicile et stress du chat",
+    "meta_description": "Découvrez comment la garde à domicile réduit le stress du chat grâce à la routine, aux repères et à des visites rassurantes.",
     "cover": "assets/img/garde-chat-domicile-sans-stress-vaud.webp",
+    "cover_alt": "Chat détendu sur un coussin lors d'une garde à domicile",
     "category": "Bien-être"
   },
   {
     "title": "Vacances tranquilles : faire garder son chat à domicile dans le canton de Vaud",
     "date": "2024-10-02",
     "slug": "vacances-tranquilles-garde-chat-vaud",
-    "excerpt": "Anticipez la garde à domicile pour partir serein et assurer la routine de votre chat.",
+    "excerpt": "Planifiez la garde à domicile dans le canton de Vaud pour partir serein tout en respectant la routine de votre chat.",
+    "meta_title": "Vacances sereines avec garde chat Vaud",
+    "meta_description": "Checklist complète pour organiser une garde de chat à domicile dans le canton de Vaud et partir l'esprit tranquille.",
     "cover": "assets/img/cat-sitting-domicile-vacances-suisse.webp",
+    "cover_alt": "Chat paisible à la maison pendant les vacances",
     "category": "Vacances"
   },
   {
     "title": "Chat âgé ou anxieux : pourquoi le cat-sitting est indispensable",
     "date": "2024-10-10",
     "slug": "chat-age-anxieux-cat-sitting",
-    "excerpt": "Le cat-sitting à domicile protège les repères des chats seniors ou sensibles.",
+    "excerpt": "Le cat-sitting à domicile protège les repères des chats seniors ou sensibles et facilite les soins spécifiques.",
+    "meta_title": "Cat-sitting pour chat âgé ou anxieux",
+    "meta_description": "Besoins des chats seniors et anxieux, soins à domicile, signes de stress et conseils pour choisir un cat-sitter.",
     "cover": "assets/img/cat-sitter-chat-age-anxieux-nat-patoune.webp",
+    "cover_alt": "Chat âgé se reposant dans un coin calme",
     "category": "Soins spécifiques"
   },
   {
     "title": "Hydratation du chat : astuces simples pour l'encourager à boire",
     "date": "2024-10-18",
     "slug": "hydratation-chat-astuces",
-    "excerpt": "Multiplier les points d'eau et varier les textures aide votre chat à rester hydraté.",
+    "excerpt": "Encouragez votre chat à boire grâce à des points d'eau variés, des textures adaptées et des rituels simples.",
+    "meta_title": "Hydratation du chat : astuces utiles",
+    "meta_description": "Méthodes simples pour améliorer l'hydratation du chat : eau fraîche, fontaines, alimentation humide et suivi santé.",
     "cover": "assets/img/chaton-cache-couverture.webp",
+    "cover_alt": "Chat curieux près d'un bol d'eau fraîche",
     "category": "Alimentation"
   },
   {
     "title": "Litière parfaite : emplacement, nettoyage et erreurs à éviter",
     "date": "2024-11-02",
     "slug": "litiere-parfaite-erreurs",
-    "excerpt": "Une litière bien placée et entretenue limite le stress et encourage une bonne routine.",
+    "excerpt": "Améliorez le confort de votre chat avec une litière bien placée, propre et adaptée à ses préférences.",
+    "meta_title": "Litière parfaite pour chat : guide",
+    "meta_description": "Guide complet pour choisir l'emplacement, la litière idéale et la routine de nettoyage qui évite le stress.",
     "cover": "assets/img/galerie-chat-1.webp",
+    "cover_alt": "Chat tigré se détendant près de sa litière propre",
     "category": "Hygiène"
   },
   {
     "title": "Jeux et stimulation : 10 minutes par jour qui changent tout",
     "date": "2024-11-12",
     "slug": "jeux-stimulation-quotidienne",
-    "excerpt": "Des séances courtes et régulières suffisent pour stimuler votre chat.",
+    "excerpt": "Stimulez votre chat avec 10 minutes de jeu quotidien pour réduire l'ennui et renforcer votre lien.",
+    "meta_title": "Jeux pour chat : 10 minutes efficaces",
+    "meta_description": "Routine de jeux courte et efficace pour stimuler votre chat, prévenir l'ennui et soutenir son bien-être.",
     "cover": "assets/img/galerie-chat-2.webp",
+    "cover_alt": "Chat joueur poursuivant un plumeau",
     "category": "Jeux"
   }
 ]
