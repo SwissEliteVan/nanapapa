@@ -507,6 +507,10 @@ button {
   gap: 1rem;
 }
 
+.gift__media {
+  position: relative;
+}
+
 .gift__icon {
   display: grid;
   place-items: center;
@@ -519,6 +523,12 @@ button {
   border-radius: 50%;
   background: rgba(243, 166, 192, 0.45);
   filter: blur(30px);
+  z-index: 0;
+}
+
+.gift__media-card {
+  position: relative;
+  z-index: 1;
 }
 
 .gift__card {
