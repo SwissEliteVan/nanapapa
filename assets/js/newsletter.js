@@ -10,8 +10,8 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
       message.textContent = text;
-      message.classList.toggle('text-red-600', Boolean(isError));
-      message.classList.toggle('text-green-600', !isError);
+      message.classList.remove('is-error', 'is-success');
+      message.classList.add(isError ? 'is-error' : 'is-success');
       message.classList.add('is-visible');
     };
 

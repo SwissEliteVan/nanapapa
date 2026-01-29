@@ -22,19 +22,19 @@ document.addEventListener('DOMContentLoaded', () => {
       .sort((a, b) => new Date(b.date) - new Date(a.date))
       .forEach((post) => {
         const article = document.createElement('article');
-        article.className = 'bg-brand-cream rounded-3xl shadow-soft overflow-hidden flex flex-col';
+        article.className = 'blog-card';
         const coverPath = normalizeCover(post.cover);
         article.innerHTML = `
-          <a href="post.html?slug=${post.slug}" class="block h-full">
-            <div class="relative h-52">
-              <img src="${coverPath}" alt="${post.title}" class="w-full h-full object-cover" loading="lazy" />
-              <span class="absolute top-4 left-4 bg-white/90 text-xs font-semibold text-brand-purple px-3 py-1 rounded-full">${post.category}</span>
+          <a href="post.html?slug=${post.slug}" class="blog-card__link">
+            <div class="blog-card__media">
+              <img src="${coverPath}" alt="${post.title}" loading="lazy" />
+              <span class="blog-card__badge">${post.category}</span>
             </div>
-            <div class="p-6">
-              <p class="text-xs uppercase tracking-widest text-brand-purple font-semibold">${new Date(post.date).toLocaleDateString('fr-CH')}</p>
-              <h2 class="text-2xl font-title font-bold mt-2">${post.title}</h2>
-              <p class="text-sm text-gray-600 mt-3">${post.excerpt}</p>
-              <span class="inline-flex items-center gap-2 text-brand-purple font-semibold text-sm mt-4">Lire l'article <i class="fas fa-arrow-right"></i></span>
+            <div class="blog-card__body">
+              <p class="section__kicker">${new Date(post.date).toLocaleDateString('fr-CH')}</p>
+              <h2 class="heading heading--md">${post.title}</h2>
+              <p>${post.excerpt}</p>
+              <span class="blog-card__link">Lire l'article <i class="fas fa-arrow-right" aria-hidden="true"></i></span>
             </div>
           </a>
         `;
@@ -77,7 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const renderPostError = (message) => {
     if (postContainer) {
-      postContainer.innerHTML = `<p class="text-gray-600">${message}</p>`;
+      postContainer.innerHTML = `<p>${message}</p>`;
     }
   };
 
@@ -102,7 +102,7 @@ document.addEventListener('DOMContentLoaded', () => {
     })
     .catch(() => {
       if (listContainer) {
-        listContainer.innerHTML = '<p class="text-gray-600">Les articles seront bientôt disponibles.</p>';
+        listContainer.innerHTML = '<p>Les articles seront bientôt disponibles.</p>';
       }
       if (postContainer) {
         renderPostError("Impossible de charger l'article.");
