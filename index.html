@@ -1,596 +1,836 @@
 <!DOCTYPE html>
-<html lang="fr-CH">
+<html lang="fr" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Nat'Patoune - Garde de chats à domicile en Suisse</title>
-  <meta name="description" content="Nat'Patoune propose un service professionnel de garde de chats à domicile et de vigilance du domicile dans le canton de Vaud." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nat'Patoune | Garde de chats à domicile</title>
   <link rel="icon" type="image/png" href="assets/img/favicon-natpatoune-chat.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="assets/css/site.css" />
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "name": "Nat'Patoune",
-      "description": "Nat'Patoune propose un service professionnel de garde de chats à domicile et de vigilance du domicile dans le canton de Vaud.",
-      "url": "https://nat-patoune.ch/",
-      "telephone": "+41 78 768 50 47",
-      "email": "miaou@nat-patoune.ch",
-      "areaServed": ["Morges", "Lausanne", "Échallens", "Vaud", "Suisse"],
-      "serviceType": "Garde de chats à domicile",
-      "image": "https://nat-patoune.ch/assets/img/logo-natpatoune.svg",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Saint-Saphorin-sur-Morges",
-        "addressRegion": "Vaud",
-        "addressCountry": "CH"
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-pbQ5VwF0Vb5MTxgkO4FDg8xT71H0FB4U5E8r/2DUp2kqzQYoH5c0zYb2FJFM6VnG+Yd2Jnjp0VdBf0rF6dH6vA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            'brand-purple': '#8F78D3',
+            'brand-pink': '#E8AEC3',
+            'brand-purple-dark': '#705eb0',
+            'brand-beige': '#FBF9F4',
+            'brand-dark': '#1A1A1A'
+          },
+          fontFamily: {
+            title: ['Montserrat', 'sans-serif'],
+            body: ['Roboto', 'sans-serif']
+          },
+          keyframes: {
+            'infinite-scroll': {
+              '0%': { transform: 'translateX(0)' },
+              '100%': { transform: 'translateX(-50%)' }
+            }
+          },
+          animation: {
+            'infinite-scroll': 'infinite-scroll 30s linear infinite'
+          }
+        }
       }
-    }
+    };
   </script>
+  <style>
+    .hero-overlay {
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.75));
+    }
+  </style>
 </head>
-<body>
-  <a class="skip-link" href="#contenu">Aller au contenu</a>
-
-  <div id="cookie-banner" class="cookie-banner is-hidden" role="dialog" aria-live="polite">
-    <div class="cookie-banner__icon">
-      <i class="fas fa-cookie-bite" aria-hidden="true"></i>
-    </div>
-    <div class="cookie-banner__content">
-      <p class="cookie-banner__title">Cookies et confidentialité</p>
-      <p>Ce site utilise des cookies nécessaires au fonctionnement et à l'analyse de fréquentation, conformément à la nLPD.</p>
-      <div class="cookie-banner__actions">
-        <button id="cookie-accept" class="btn btn--primary" type="button">Accepter</button>
-        <button id="cookie-decline" class="btn btn--outline" type="button">Refuser</button>
-      </div>
-    </div>
-  </div>
-
-  <div id="loyalty-popup" class="modal is-hidden" role="dialog" aria-modal="true" aria-label="Programme fidélité">
-    <div class="modal__card">
-      <button id="loyalty-close" class="modal__close" aria-label="Fermer" type="button">
-        <i class="fas fa-times" aria-hidden="true"></i>
-      </button>
-      <div class="modal__body text-center">
-        <div class="icon-circle icon-circle--purple">
-          <i class="fas fa-award" aria-hidden="true"></i>
-        </div>
-        <h3 class="heading heading--md">Programme fidélité</h3>
-        <p>11ème visite offerte pour vous remercier de votre confiance.</p>
-        <a href="#contact" class="btn btn--primary">En profiter</a>
-      </div>
-    </div>
-  </div>
-
-  <header class="site-header">
-    <div class="container site-header__inner">
-      <a href="#accueil" class="brand">
-        <img src="assets/img/logo-natpatoune.svg" alt="Nat'Patoune" class="brand__logo" width="120" height="60" />
-        <span class="brand__name">Nat'Patoune</span>
+<body class="font-body bg-brand-beige text-slate-900 dark:bg-brand-dark dark:text-slate-100">
+  <header class="fixed top-0 left-0 right-0 z-50 bg-white/90 dark:bg-brand-dark/90 backdrop-blur border-b border-slate-200 dark:border-white/10">
+    <div class="max-w-6xl mx-auto flex items-center justify-between px-4 py-4">
+      <a href="#accueil" class="flex items-center gap-3">
+        <img src="assets/img/logo-natpatoune.svg" alt="Logo Nat'Patoune" class="h-10 w-auto" />
+        <span class="font-title font-bold text-lg">Nat'Patoune</span>
       </a>
-      <nav class="site-nav" aria-label="Navigation principale">
-        <ul class="site-nav__list">
-          <li><a href="#accueil">Accueil</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#protocoles">Protocoles</a></li>
-          <li><a href="#zones-tarifs">Tarifs</a></li>
-          <li><a href="#cadeau" class="text-accent">Cadeau</a></li>
-          <li><a href="#avis">Avis</a></li>
-          <li><a href="#blog">Blog</a></li>
-        </ul>
-        <a href="#contact" class="btn btn--primary btn--small">Contact</a>
+      <nav class="hidden lg:flex items-center gap-6 text-sm font-medium">
+        <a href="#accueil" class="hover:text-brand-pink transition">Accueil</a>
+        <a href="#services" class="hover:text-brand-pink transition">Services</a>
+        <a href="#protocoles" class="hover:text-brand-pink transition">Protocoles</a>
+        <a href="#tarifs" class="hover:text-brand-pink transition">Tarifs</a>
+        <a href="#cadeau" class="hover:text-brand-pink transition">Cadeau</a>
+        <a href="#avis" class="hover:text-brand-pink transition">Avis</a>
+        <a href="#blog" class="hover:text-brand-pink transition">Blog</a>
       </nav>
-      <button id="burger" class="burger" aria-expanded="false" aria-controls="mobile-menu" aria-label="Ouvrir le menu" type="button">
-        <span></span>
-        <span></span>
-        <span></span>
+      <div class="hidden lg:flex items-center gap-3">
+        <a href="#contact" class="bg-brand-purple hover:bg-brand-purple-dark text-white px-5 py-2.5 rounded-2xl shadow-lg transition hover:scale-105">Réserver</a>
+      </div>
+      <button id="mobile-menu-toggle" class="lg:hidden text-2xl" aria-label="Ouvrir le menu">
+        <i class="fa-solid fa-bars"></i>
       </button>
     </div>
-    <nav id="mobile-menu" class="mobile-nav is-hidden" aria-label="Navigation mobile">
-      <ul class="mobile-nav__list">
-        <li><a href="#accueil">Accueil</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#protocoles">Protocoles</a></li>
-        <li><a href="#zones-tarifs">Tarifs</a></li>
-        <li><a href="#cadeau" class="text-accent">Cadeau</a></li>
-        <li><a href="#avis">Avis</a></li>
-        <li><a href="#blog">Blog</a></li>
-      </ul>
-      <a href="#contact" class="btn btn--primary btn--small">Contact</a>
-    </nav>
+    <div id="mobile-menu" class="hidden lg:hidden bg-white dark:bg-brand-dark border-t border-slate-200 dark:border-white/10">
+      <div class="px-4 py-4 flex flex-col gap-3 text-sm font-medium">
+        <a href="#accueil" class="hover:text-brand-pink transition">Accueil</a>
+        <a href="#services" class="hover:text-brand-pink transition">Services</a>
+        <a href="#protocoles" class="hover:text-brand-pink transition">Protocoles</a>
+        <a href="#tarifs" class="hover:text-brand-pink transition">Tarifs</a>
+        <a href="#cadeau" class="hover:text-brand-pink transition">Cadeau</a>
+        <a href="#avis" class="hover:text-brand-pink transition">Avis</a>
+        <a href="#blog" class="hover:text-brand-pink transition">Blog</a>
+        <a href="#contact" class="bg-brand-purple hover:bg-brand-purple-dark text-white px-5 py-2.5 rounded-2xl shadow-lg transition hover:scale-105 w-fit">Réserver</a>
+      </div>
+    </div>
   </header>
 
-  <main id="contenu">
-    <section id="accueil" class="hero" aria-labelledby="hero-title" data-summary="Garde de chats à domicile avec une attention certifiée dans le canton de Vaud.">
-      <video autoplay muted loop playsinline poster="assets/img/hero-bg-cat.webp" class="hero__video">
+  <main class="pt-28" id="accueil">
+    <section class="relative min-h-[80vh] flex items-center">
+      <video class="absolute inset-0 w-full h-full object-cover" autoplay muted loop playsinline poster="assets/img/hero-bg-cat.webp">
         <source src="assets/img/hero.mp4" type="video/mp4" />
       </video>
-      <div class="hero__overlay"></div>
-      <div class="container hero__content">
-        <span class="pill">Service Professionnel Vaudois</span>
-        <h1 id="hero-title" class="heading heading--xl">Garde de chats à domicile</h1>
-        <p>Nathalie veille sur vos félins directement chez vous avec professionnalisme et une attention certifiée.</p>
-        <div class="hero__actions">
-          <a href="#contact" class="btn btn--accent">Réserver une visite</a>
-          <a href="#zones-tarifs" class="btn btn--light">Voir les tarifs</a>
+      <div class="absolute inset-0 hero-overlay"></div>
+      <div class="relative z-10 max-w-6xl mx-auto px-4 py-16 text-white">
+        <div class="max-w-2xl space-y-6">
+          <span class="inline-flex items-center gap-2 bg-white/10 text-white px-4 py-2 rounded-2xl text-sm uppercase tracking-wide">
+            <i class="fa-solid fa-shield-cat text-brand-pink"></i>
+            Service certifié à domicile
+          </span>
+          <h1 class="font-title text-4xl md:text-5xl font-bold">Garde de chats à domicile</h1>
+          <p class="text-lg md:text-xl text-white/90">Nathalie veille sur vos félins directement chez vous avec professionnalisme et une attention certifiée.</p>
+          <div class="flex flex-wrap gap-4">
+            <a href="#contact" class="bg-brand-purple hover:bg-brand-purple-dark text-white px-6 py-3 rounded-2xl shadow-lg transition hover:scale-105">Réserver</a>
+            <a href="#tarifs" class="bg-white/90 text-slate-900 px-6 py-3 rounded-2xl shadow-lg transition hover:scale-105">Découvrir les tarifs</a>
+          </div>
         </div>
       </div>
     </section>
 
-    <section id="services" class="section section--cream" aria-labelledby="services-title" data-summary="Services essentiels pour le bien-être, les soins médicaux et la vigilance du domicile.">
-      <div class="container">
-        <header class="section__header">
-          <h2 id="services-title" class="heading heading--lg">Services essentiels</h2>
-          <p>Un accompagnement complet pour votre chat et votre tranquillité.</p>
-        </header>
-        <div class="card-grid">
-          <article class="card">
-            <div class="icon-circle">
-              <i class="fas fa-heart" aria-hidden="true"></i>
+    <section id="services" class="py-16 bg-white dark:bg-[#111111]">
+      <div class="max-w-6xl mx-auto px-4">
+        <div class="text-center mb-12 space-y-2">
+          <p class="text-brand-pink font-semibold uppercase tracking-wide">Services</p>
+          <h2 class="font-title text-3xl md:text-4xl font-bold">Une attention sur-mesure pour vos chats</h2>
+        </div>
+        <div class="grid md:grid-cols-3 gap-6">
+          <article class="bg-white dark:bg-[#1f1f1f] rounded-[32px] shadow-xl p-6 space-y-4 border border-slate-100 dark:border-white/10 text-justify">
+            <div class="h-12 w-12 rounded-2xl bg-brand-pink/30 text-brand-purple flex items-center justify-center text-xl mx-auto">
+              <i class="fa-solid fa-heart"></i>
             </div>
-            <h3 class="heading heading--md">Bien-être &amp; Câlins</h3>
+            <h3 class="font-title text-xl font-bold text-center">Bien-être &amp; Câlins</h3>
             <p>Nourriture, eau fraîche, litière, mais surtout du temps de jeu et d'affection pour votre compagnon.</p>
           </article>
-          <article class="card">
-            <div class="icon-circle">
-              <i class="fas fa-briefcase-medical" aria-hidden="true"></i>
+          <article class="bg-white dark:bg-[#1f1f1f] rounded-[32px] shadow-xl p-6 space-y-4 border border-slate-100 dark:border-white/10 text-justify">
+            <div class="h-12 w-12 rounded-2xl bg-brand-pink/30 text-brand-purple flex items-center justify-center text-xl mx-auto">
+              <i class="fa-solid fa-briefcase-medical"></i>
             </div>
-            <h3 class="heading heading--md">Soins Médicaux</h3>
-            <p>Administration de médicaments (comprimés, pommades ou soins oculaires) pour les chats nécessitant un suivi particulier.</p>
+            <h3 class="font-title text-xl font-bold text-center">Soins Médicaux</h3>
+            <p>Administration de médicaments (comprimés, pommades ou soins oculaires) pour les chats nécessitant un suivi particulier. (PAS D'INSULINE).</p>
           </article>
-          <article class="card">
-            <div class="icon-circle">
-              <i class="fas fa-house" aria-hidden="true"></i>
+          <article class="bg-white dark:bg-[#1f1f1f] rounded-[32px] shadow-xl p-6 space-y-4 border border-slate-100 dark:border-white/10 text-justify">
+            <div class="h-12 w-12 rounded-2xl bg-brand-pink/30 text-brand-purple flex items-center justify-center text-xl mx-auto">
+              <i class="fa-solid fa-house-circle-check"></i>
             </div>
-            <h3 class="heading heading--md">Vigilance &amp; Gestion de domicile</h3>
+            <h3 class="font-title text-xl font-bold text-center">Vigilance &amp; Gestion de domicile</h3>
             <p>Au-delà du chat, je veille sur votre domicile. Relève du courrier, aération, arrosage des plantes pour un retour serein.</p>
           </article>
         </div>
       </div>
-    </div>
-  </section>
-
-    <section id="zones-tarifs" class="section section--beige" aria-labelledby="zones-title" data-summary="Zones couvertes et tarifs par visite pour Morges, Lausanne et Échallens.">
-      <div class="container">
-        <header class="section__header">
-          <h2 id="zones-title" class="heading heading--lg">Zones et tarifs</h2>
-          <p>Pré-visite offerte.</p>
-        </header>
-        <div class="pricing-grid">
-          <article class="pricing-card">
-            <div class="pricing-card__header">
-              <h3 class="heading heading--md">Zone 1</h3>
-              <p class="pricing-card__subtitle">Morges et environs</p>
-              <p class="pricing-card__price">30 CHF</p>
-              <p class="pricing-card__note">par visite</p>
-            </div>
-            <p class="pricing-card__cities">Aclens, Allaman, Aubonne, Ballens, Berolle, Bière, Bougy-Villars, Bremblens, Buchillon, Chavannes-le-Veyron, Chevilly, Chigny, Clarmont, Cossonay, Cuarnens, Denens, Denges, Dizy, Echandens, Echichens, Eclépens, Etoy, Féchy, Ferreyres, Gimel, Gollion, Grancy, Hautemorges, La Chaux (Cossonay), La Sarraz, Lavigny, L'Isle, Lonay, Lully, Lussy-sur-Morges, Mauraz, Moiry, Mollens, Mont-la-Ville, Montricher, Morges, Orny, Pompaples, Préverenges, Romanel-sur-Morges, Saint-Livres, Saint-Oyens, Saint-Prex, Saubraz, Senarclens, Tolochenaz, Vaux-sur-Morges, Villars-sous-Yens, Vufflens-le-Château, Vullierens, Yens.</p>
-            <button class="btn btn--primary" data-zone="Zone 1" type="button">Réserver Zone 1</button>
-          </article>
-          <article class="pricing-card pricing-card--highlight">
-            <div class="pricing-card__header">
-              <h3 class="heading heading--md">Zone 2</h3>
-              <p class="pricing-card__subtitle">Lausanne et Ouest</p>
-              <p class="pricing-card__price">35 CHF</p>
-              <p class="pricing-card__note">par visite</p>
-            </div>
-            <p class="pricing-card__cities">Bussigny, Chavannes-près-Renens, Cheseaux-sur-Lausanne, Crissier, Ecublens, Epalinges, Jouxtens-Mézery, Lausanne, Le Mont-sur-Lausanne, Prilly, Renens, Romanel-sur-Lausanne, Saint-Sulpice, Villars-Sainte-Croix.</p>
-            <button class="btn btn--primary" data-zone="Zone 2" type="button">Réserver Zone 2</button>
-          </article>
-          <article class="pricing-card">
-            <div class="pricing-card__header">
-              <h3 class="heading heading--md">Zone 3</h3>
-              <p class="pricing-card__subtitle">Échallens et environs</p>
-              <p class="pricing-card__price">40 CHF</p>
-              <p class="pricing-card__note">par visite</p>
-            </div>
-            <p class="pricing-card__cities">Assens, Bercher, Bettens, Bottens, Boulens, Bournens, Boussens, Bretigny-sur-Morrens, Cugy, Daillens, Echallens, Essertines-sur-Yverdon, Etagnières, Fey, Froideville, Goumoëns, Jorat-Menthue, Lussery-Villars, Mex, Montanaire, Montilliez, Morrens, Ogens, Oppens, Oulens-sous-Echallens, Pailly, Penthalaz, Penthaz, Penthéréaz, Poliez-Pittet, Rueyres, Saint-Barthélémy, Sullens, Villars-le-Terroir, Vuarrens, Vufflens-la-Ville.</p>
-            <button class="btn btn--primary" data-zone="Zone 3" type="button">Réserver Zone 3</button>
-          </article>
-        </div>
-        <aside class="info-card" aria-label="Informations importantes">
-          <h3 class="heading heading--sm"><i class="fas fa-circle-info" aria-hidden="true"></i>Informations importantes</h3>
-          <ul class="checklist checklist--compact">
-            <li>Supplément : +5 CHF par chat supplémentaire</li>
-            <li>Parking : +2 CHF</li>
-            <li>Jour férié : +10 CHF</li>
-            <li>Pré-visite offerte</li>
-          </ul>
-        </aside>
-      </div>
     </section>
 
-  <section id="cadeau" class="py-16 bg-white">
-    <div class="max-w-6xl mx-auto px-4">
-      <div class="bg-gradient-to-r from-brand-purple-dark to-brand-purple text-white rounded-3xl p-8 md:p-12 shadow-soft">
-        <div class="grid gap-10 md:grid-cols-[minmax(0,1fr)_minmax(0,320px)] items-center">
-          <div>
-            <div class="flex flex-wrap items-center gap-3 mb-4">
-              <span class="bg-brand-pink text-brand-text text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">Idée Cadeau</span>
-            </div>
-            <h2 class="text-3xl md:text-4xl font-title font-bold mb-4">Offrez de la sérénité avec un Bon Cadeau Nat'Patoune</h2>
-            <p class="text-white/90 text-lg">Le cadeau idéal pour les propriétaires de chats ! Offrez des visites...</p>
-            <div class="mt-6 flex flex-col sm:flex-row gap-4">
-              <button id="gift-open" class="bg-white text-brand-purple font-semibold px-6 py-3 rounded-full focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">Commander un Bon</button>
-              <a href="#contact" class="border border-white/40 text-white font-semibold px-6 py-3 rounded-full focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">Demander un devis</a>
-            </div>
-          </div>
-          <div class="relative flex justify-center md:justify-end gift__media">
-            <div class="gift__glow"></div>
-            <div class="w-full max-w-xs bg-white/10 backdrop-blur-md rounded-2xl border border-white/20 shadow-soft p-6 text-center relative gift__media-card">
-              <div class="w-20 h-20 bg-white/10 rounded-full flex items-center justify-center border-4 border-white/20 shadow-soft mx-auto mb-4">
-                <i class="fas fa-gift" aria-hidden="true"></i>
-              </div>
-              <span class="text-brand-pink text-sm font-semibold"><i class="fas fa-check-circle mr-1" aria-hidden="true"></i> Valable 1 an</span>
-            </div>
-          </div>
+    <section id="protocoles" class="py-16 bg-brand-beige dark:bg-brand-dark">
+      <div class="max-w-6xl mx-auto px-4">
+        <div class="text-center mb-12 space-y-2">
+          <p class="text-brand-pink font-semibold uppercase tracking-wide">Protocoles</p>
+          <h2 class="font-title text-3xl md:text-4xl font-bold">Espace Propriétaires</h2>
         </div>
-      </div>
-    </div>
-  </section>
-
-    <section id="avis" class="section section--cream" aria-labelledby="avis-title" data-summary="Avis clients avec note Google 5.0 / 5.0.">
-      <div class="container">
-        <header class="section__header">
-          <span class="rating-pill"><i class="fas fa-star" aria-hidden="true"></i> Note Google 5.0 / 5.0</span>
-          <h2 id="avis-title" class="heading heading--lg">Avis clients</h2>
-          <p>Des retours authentiques qui soulignent la douceur des visites et la tranquillité d'esprit.</p>
-        </header>
-        <div class="testimonials-grid" aria-label="Avis clients">
-          <article class="testimonial">
-            <div class="testimonial__stars">
-              <i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i>
-            </div>
-            <p>Réactivité et professionnalisme dès le premier contact. Photos et nouvelles à chaque passage, pour partir l'esprit serein.</p>
-            <div class="testimonial__author">
-              <img src="assets/img/galerie-chat-1.webp" alt="Chat" loading="lazy" />
-              <div>
-                <p>Sandrine</p>
+        <div class="grid lg:grid-cols-2 gap-8">
+          <div class="bg-white dark:bg-[#1f1f1f] rounded-[40px] shadow-xl p-8 space-y-6 border border-slate-100 dark:border-white/10">
+            <div class="flex items-center gap-3">
+              <div class="h-12 w-12 rounded-2xl bg-brand-pink/30 text-brand-purple flex items-center justify-center text-xl">
+                <i class="fa-solid fa-house"></i>
               </div>
+              <h3 class="font-title text-2xl font-bold">Checklist Logement</h3>
             </div>
-          </article>
-          <article class="testimonial">
-            <div class="testimonial__stars">
-              <i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i>
-            </div>
-            <p>Une attention constante et des nouvelles régulières avec photos et vidéos. Une expérience vraiment rassurante.</p>
-            <div class="testimonial__author">
-              <img src="assets/img/avis-uranus.webp" alt="Chat Uranus" loading="lazy" />
-              <div>
-                <p>Jo'</p>
-                <span>Propriétaire d'Uranus</span>
-              </div>
-            </div>
-          </article>
-          <article class="testimonial">
-            <div class="testimonial__stars">
-              <i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i>
-            </div>
-            <p>Des visites impeccables et une relation de confiance qui s'est installée tout de suite. Très douce et attentive.</p>
-            <div class="testimonial__author">
-              <img src="assets/img/avis-luna.webp" alt="Chat Luna" loading="lazy" />
-              <div>
-                <p>Valérie</p>
-                <span>Propriétaire de Luna</span>
-              </div>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="galerie" class="section" aria-labelledby="galerie-title" data-summary="Galerie de chats pour illustrer les visites à domicile.">
-      <div class="container">
-        <header class="section__header">
-          <h2 id="galerie-title" class="heading heading--lg">Galerie</h2>
-        </header>
-        <div class="gallery">
-          <img src="assets/img/galerie-chat-1.webp" alt="Chat en galerie" class="gallery__image" loading="lazy" />
-          <img src="assets/img/galerie-chat-2.webp" alt="Chat en galerie" class="gallery__image" loading="lazy" />
-          <img src="assets/img/galerie-chat-3.webp" alt="Chat en galerie" class="gallery__image" loading="lazy" />
-          <img src="assets/img/galerie-chat-4.webp" alt="Chat en galerie" class="gallery__image" loading="lazy" />
-          <img src="assets/img/galerie-chat-5.webp" alt="Chat en galerie" class="gallery__image" loading="lazy" />
-          <img src="assets/img/galerie-chat-6.webp" alt="Chat en galerie" class="gallery__image" loading="lazy" />
-        </div>
-      </div>
-    </section>
-
-    <section id="newsletter" class="section section--cream" aria-labelledby="newsletter-title" data-summary="Guide offert : 10 astuces professionnelles pour un chat serein.">
-      <div class="container">
-        <div class="newsletter">
-          <div class="newsletter__content">
-            <span class="pill pill--accent">Guide offert</span>
-            <h2 id="newsletter-title" class="heading heading--lg">Guide : 10 astuces professionnelles pour un chat serein</h2>
-            <p>Recevez le guide complet par email et préparez vos prochaines absences en toute confiance.</p>
-            <form class="newsletter-form" action="https://formspree.io/f/your-id" method="POST" data-redirect="merci.html">
-              <div class="newsletter__fields">
-                <input type="email" name="email" required placeholder="Votre email" />
-                <button type="submit" class="btn btn--primary">Recevoir le PDF</button>
-              </div>
-              <label class="checkbox">
-                <input type="checkbox" name="consentement" required />
-                <span>J'accepte de recevoir la newsletter Nat'Patoune et je peux me désinscrire à tout moment.</span>
+            <div class="space-y-3">
+              <label class="flex items-center gap-3 bg-brand-beige/70 dark:bg-white/5 px-4 py-3 rounded-2xl">
+                <input type="checkbox" class="accent-brand-purple h-4 w-4" />
+                <span>Verrouillage fenêtres</span>
               </label>
-              <input type="hidden" name="_subject" value="Nouvelle inscription newsletter - Guide PDF" />
-              <p class="newsletter-message" data-newsletter-message></p>
-            </form>
-          </div>
-          <div class="newsletter__card">
-            <img src="assets/img/logo-natpatoune.svg" alt="Nat'Patoune" class="newsletter__logo" />
-            <span>Guide PDF</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="blog" class="section" aria-labelledby="blog-title" data-summary="Blog dynamique avec conseils d'experte pour vos chats.">
-      <div class="container">
-        <header class="section__header">
-          <span class="section__kicker">Conseils d'experte</span>
-          <h2 id="blog-title" class="heading heading--lg">Blog dynamique</h2>
-          <p>Des articles utiles pour prendre soin de vos chats au quotidien.</p>
-        </header>
-        <div class="section__actions">
-          <a href="blog/index.html" class="btn btn--outline">Voir tous les articles</a>
-        </div>
-        <div id="blog-grid" data-blog-home class="blog-grid"></div>
-      </div>
-    </section>
-
-    <section id="propos" class="section section--cream" aria-labelledby="propos-title" data-summary="À propos de Nathalie, cat-sitter certifiée et attentive.">
-      <div class="container about">
-        <div class="about__media">
-          <img src="assets/img/nathalie-profil.webp" alt="Portrait Nathalie" loading="lazy" />
-        </div>
-        <div class="about__content">
-          <h2 id="propos-title" class="heading heading--lg">À propos</h2>
-          <p>Passionnée par le bien-être félin, Nathalie accompagne vos chats avec douceur et rigueur. Certifiée et attentive, elle adapte chaque visite à la personnalité du chat pour garantir confort, sécurité et sérénité.</p>
-          <p>Ses interventions sont basées sur l'écoute, la bienveillance et une organisation claire pour que vous partiez en confiance.</p>
-          <button id="certificat-open" class="btn btn--primary" type="button">Voir le certificat</button>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact" class="section" aria-labelledby="contact-title" data-summary="Contactez Nat'Patoune pour organiser une visite à domicile.">
-      <div class="container contact">
-        <div class="contact__form">
-          <h2 id="contact-title" class="heading heading--lg">Contact</h2>
-          <form class="form">
-            <input type="text" placeholder="Nom" required />
-            <input type="tel" placeholder="Téléphone" required />
-            <input type="text" placeholder="Localité" required />
-            <div class="form__grid">
-              <input type="date" placeholder="Début" required />
-              <input type="date" placeholder="Fin" required />
-            </div>
-            <textarea id="contact-message" rows="5" placeholder="Message" required></textarea>
-            <button type="submit" class="btn btn--primary">Envoyer</button>
-          </form>
-        </div>
-        <aside class="contact__aside">
-          <div class="contact-card">
-            <h3 class="heading heading--md">Coordonnées</h3>
-            <p>Email : <a href="mailto:miaou@nat-patoune.ch">miaou@nat-patoune.ch</a></p>
-            <p>Téléphone : <a href="tel:+41787685047">+41 78 768 50 47</a></p>
-          </div>
-          <div class="contact-card">
-            <h3 class="heading heading--md">Documents</h3>
-            <div class="contact-card__links">
-              <button data-modal="modal-cgv" type="button">Conditions Générales</button>
-              <button data-modal="modal-mentions" type="button">Mentions légales</button>
-              <button data-modal="modal-privacy" type="button">Confidentialité</button>
+              <label class="flex items-center gap-3 bg-brand-beige/70 dark:bg-white/5 px-4 py-3 rounded-2xl">
+                <input type="checkbox" class="accent-brand-purple h-4 w-4" />
+                <span>Courrier</span>
+              </label>
+              <label class="flex items-center gap-3 bg-brand-beige/70 dark:bg-white/5 px-4 py-3 rounded-2xl">
+                <input type="checkbox" class="accent-brand-purple h-4 w-4" />
+                <span>Arrosage</span>
+              </label>
             </div>
           </div>
-        </aside>
+          <div class="bg-white dark:bg-[#1f1f1f] rounded-[40px] shadow-xl p-8 space-y-6 border border-slate-100 dark:border-white/10">
+            <div class="flex items-center gap-3">
+              <div class="h-12 w-12 rounded-2xl bg-brand-pink/30 text-brand-purple flex items-center justify-center text-xl">
+                <i class="fa-solid fa-cat"></i>
+              </div>
+              <h3 class="font-title text-2xl font-bold">Checklist Félin</h3>
+            </div>
+            <div class="space-y-3">
+              <label class="flex items-center gap-3 bg-brand-beige/70 dark:bg-white/5 px-4 py-3 rounded-2xl">
+                <input type="checkbox" class="accent-brand-purple h-4 w-4" />
+                <span>Stocks nourriture</span>
+              </label>
+              <label class="flex items-center gap-3 bg-brand-beige/70 dark:bg-white/5 px-4 py-3 rounded-2xl">
+                <input type="checkbox" class="accent-brand-purple h-4 w-4" />
+                <span>Carnet santé</span>
+              </label>
+              <label class="flex items-center gap-3 bg-brand-beige/70 dark:bg-white/5 px-4 py-3 rounded-2xl">
+                <input type="checkbox" class="accent-brand-purple h-4 w-4" />
+                <span>Matériel nettoyage</span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="tarifs" class="py-16 bg-white dark:bg-[#111111]">
+      <div class="max-w-6xl mx-auto px-4">
+        <div class="text-center mb-12 space-y-2">
+          <p class="text-brand-pink font-semibold uppercase tracking-wide">Tarifs</p>
+          <h2 class="font-title text-3xl md:text-4xl font-bold">Zones d'intervention</h2>
+        </div>
+        <div class="grid lg:grid-cols-3 gap-6">
+          <div class="bg-white dark:bg-[#1f1f1f] rounded-[32px] shadow-xl p-6 space-y-4 border border-slate-100 dark:border-white/10">
+            <h3 class="font-title text-xl font-bold">Zone 1 — 30 CHF</h3>
+            <p class="text-sm text-slate-600 dark:text-slate-300">Morges et environs.</p>
+            <ul class="text-sm text-slate-600 dark:text-slate-300 space-y-1 max-h-40 overflow-y-auto pr-1">
+              <li>Aclens</li>
+              <li>Allaman</li>
+              <li>Aubonne</li>
+              <li>Ballens</li>
+              <li>Berolle</li>
+              <li>Bière</li>
+              <li>Bougy-Villars</li>
+              <li>Bremblens</li>
+              <li>Buchillon</li>
+              <li>Chavannes-le-Veyron</li>
+              <li>Chevilly</li>
+              <li>Chigny</li>
+              <li>Clarmont</li>
+              <li>Cossonay</li>
+              <li>Cuarnens</li>
+              <li>Denens</li>
+              <li>Denges</li>
+              <li>Dizy</li>
+              <li>Echandens</li>
+              <li>Echichens</li>
+              <li>Eclépens</li>
+              <li>Etoy</li>
+              <li>Féchy</li>
+              <li>Ferreyres</li>
+              <li>Gimel</li>
+              <li>Gollion</li>
+              <li>Grancy</li>
+              <li>Hautemorges</li>
+              <li>La Chaux (Cossonay)</li>
+              <li>La Sarraz</li>
+              <li>Lavigny</li>
+              <li>L'Isle</li>
+              <li>Lonay</li>
+              <li>Lully</li>
+              <li>Lussy-sur-Morges</li>
+              <li>Mauraz</li>
+              <li>Moiry</li>
+              <li>Mollens</li>
+              <li>Mont-la-Ville</li>
+              <li>Montricher</li>
+              <li>Morges</li>
+              <li>Orny</li>
+              <li>Pompaples</li>
+              <li>Préverenges</li>
+              <li>Romanel-sur-Morges</li>
+              <li>Saint-Livres</li>
+              <li>Saint-Oyens</li>
+              <li>Saint-Prex</li>
+              <li>Saubraz</li>
+              <li>Senarclens</li>
+              <li>Tolochenaz</li>
+              <li>Vaux-sur-Morges</li>
+              <li>Villars-sous-Yens</li>
+              <li>Vufflens-le-Château</li>
+              <li>Vullierens</li>
+              <li>Yens</li>
+            </ul>
+          </div>
+          <div class="bg-white dark:bg-[#1f1f1f] rounded-[32px] shadow-xl p-6 space-y-4 border border-brand-purple/20">
+            <h3 class="font-title text-xl font-bold">Zone 2 — 35 CHF</h3>
+            <p class="text-sm text-slate-600 dark:text-slate-300">Lausanne et Ouest.</p>
+            <ul class="text-sm text-slate-600 dark:text-slate-300 space-y-1 max-h-40 overflow-y-auto pr-1">
+              <li>Bussigny</li>
+              <li>Chavannes-près-Renens</li>
+              <li>Cheseaux-sur-Lausanne</li>
+              <li>Crissier</li>
+              <li>Ecublens</li>
+              <li>Epalinges</li>
+              <li>Jouxtens-Mézery</li>
+              <li>Lausanne</li>
+              <li>Le Mont-sur-Lausanne</li>
+              <li>Prilly</li>
+              <li>Renens</li>
+              <li>Romanel-sur-Lausanne</li>
+              <li>Saint-Sulpice</li>
+              <li>Villars-Sainte-Croix</li>
+            </ul>
+          </div>
+          <div class="bg-white dark:bg-[#1f1f1f] rounded-[32px] shadow-xl p-6 space-y-4 border border-slate-100 dark:border-white/10">
+            <h3 class="font-title text-xl font-bold">Zone 3 — 40 CHF</h3>
+            <p class="text-sm text-slate-600 dark:text-slate-300">Échallens et environs.</p>
+            <ul class="text-sm text-slate-600 dark:text-slate-300 space-y-1 max-h-40 overflow-y-auto pr-1">
+              <li>Assens</li>
+              <li>Bercher</li>
+              <li>Bettens</li>
+              <li>Bottens</li>
+              <li>Boulens</li>
+              <li>Bournens</li>
+              <li>Boussens</li>
+              <li>Bretigny-sur-Morrens</li>
+              <li>Cugy</li>
+              <li>Daillens</li>
+              <li>Echallens</li>
+              <li>Essertines-sur-Yverdon</li>
+              <li>Etagnières</li>
+              <li>Fey</li>
+              <li>Froideville</li>
+              <li>Goumoëns</li>
+              <li>Jorat-Menthue</li>
+              <li>Lussery-Villars</li>
+              <li>Mex</li>
+              <li>Montanaire</li>
+              <li>Montilliez</li>
+              <li>Morrens</li>
+              <li>Ogens</li>
+              <li>Oppens</li>
+              <li>Oulens-sous-Echallens</li>
+              <li>Pailly</li>
+              <li>Penthalaz</li>
+              <li>Penthaz</li>
+              <li>Penthéréaz</li>
+              <li>Poliez-Pittet</li>
+              <li>Rueyres</li>
+              <li>Saint-Barthélémy</li>
+              <li>Sullens</li>
+              <li>Villars-le-Terroir</li>
+              <li>Vuarrens</li>
+              <li>Vufflens-la-Ville</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="cadeau" class="py-16 bg-brand-purple text-white">
+      <div class="max-w-6xl mx-auto px-4">
+        <div class="grid lg:grid-cols-2 gap-10 items-center">
+          <div class="space-y-4">
+            <p class="uppercase tracking-wide text-sm text-white/80">Idée Cadeau</p>
+            <h2 class="font-title text-3xl md:text-4xl font-bold">Offrez de la sérénité avec un Bon Cadeau Nat'Patoune</h2>
+            <p class="text-white/90">Partagez la tranquillité d'esprit : une attention personnalisée pour les amoureux des chats.</p>
+          </div>
+          <div class="bg-white/10 border border-white/20 rounded-[32px] p-8">
+            <div class="bg-white text-slate-900 rounded-[28px] p-6 shadow-lg relative overflow-hidden">
+              <div class="absolute -top-10 -right-10 h-24 w-24 bg-brand-pink rounded-full opacity-40"></div>
+              <div class="flex items-center justify-between">
+                <div>
+                  <p class="text-xs uppercase tracking-wide text-slate-500">Bon Cadeau</p>
+                  <h3 class="font-title text-2xl font-bold">Nat'Patoune</h3>
+                </div>
+                <i class="fa-solid fa-gift text-3xl text-brand-purple"></i>
+              </div>
+              <p class="mt-4 text-sm text-slate-600">Valable sur les visites à domicile, personnalisable et instantanément envoyable.</p>
+              <div class="mt-6 flex items-center justify-between text-xs text-slate-500">
+                <span>12 mois de validité</span>
+                <span>100% sérénité</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="avis" class="py-16 bg-white dark:bg-[#111111]">
+      <div class="max-w-6xl mx-auto px-4 space-y-10">
+        <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+          <div>
+            <p class="text-brand-pink font-semibold uppercase tracking-wide">Avis</p>
+            <h2 class="font-title text-3xl md:text-4xl font-bold">Ils parlent de Nat'Patoune</h2>
+          </div>
+          <div class="flex items-center gap-2 bg-brand-pink/20 text-brand-purple px-4 py-2 rounded-2xl">
+            <i class="fa-brands fa-google"></i>
+            <span class="font-semibold">Note Google 5.0 / 5.0</span>
+            <div class="flex items-center gap-1 text-yellow-400 text-sm">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+          </div>
+        </div>
+        <div class="overflow-hidden">
+          <div class="flex gap-6 animate-infinite-scroll w-max">
+            <div class="flex gap-6">
+              <article class="min-w-[280px] max-w-[320px] bg-white dark:bg-[#1f1f1f] rounded-[32px] shadow-xl p-6 space-y-4 border border-slate-100 dark:border-white/10">
+                <div class="flex items-center gap-1 text-yellow-400">
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                </div>
+                <p class="text-sm text-slate-600 dark:text-slate-300">J’ai eu les références de Nathalie en dernière minute... Je ne peux que recommander nat-patoune pour la qualité de ses services, son sérieux et sa douceur. Je ne peux que recommander.</p>
+                <p class="font-semibold">Sandrine</p>
+              </article>
+              <article class="min-w-[280px] max-w-[320px] bg-white dark:bg-[#1f1f1f] rounded-[32px] shadow-xl p-6 space-y-4 border border-slate-100 dark:border-white/10">
+                <div class="flex items-center gap-3">
+                  <img src="assets/img/avis-uranus.webp" alt="Avis Uranus" class="h-12 w-12 rounded-full object-cover" />
+                  <div>
+                    <p class="font-semibold">Jo'</p>
+                    <div class="flex items-center gap-1 text-yellow-400 text-sm">
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                    </div>
+                  </div>
+                </div>
+                <p class="text-sm text-slate-600 dark:text-slate-300">J'ai fait appel à Nat'Patoune pour mon bébé chat Uranus... Nathalie a été attentive, douce et très professionnelle. Je suis partie l'esprit tranquille et Uranus aussi.</p>
+              </article>
+              <article class="min-w-[280px] max-w-[320px] bg-white dark:bg-[#1f1f1f] rounded-[32px] shadow-xl p-6 space-y-4 border border-slate-100 dark:border-white/10">
+                <div class="flex items-center gap-3">
+                  <img src="assets/img/avis-luna.webp" alt="Avis Luna" class="h-12 w-12 rounded-full object-cover" />
+                  <div>
+                    <p class="font-semibold">Valérie</p>
+                    <div class="flex items-center gap-1 text-yellow-400 text-sm">
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                    </div>
+                  </div>
+                </div>
+                <p class="text-sm text-slate-600 dark:text-slate-300">Nathalie s'occupe de Luna régulièrement... Elle respecte les habitudes de Luna, donne des nouvelles détaillées et apporte une vraie tranquillité d'esprit.</p>
+              </article>
+            </div>
+            <div class="flex gap-6" aria-hidden="true">
+              <article class="min-w-[280px] max-w-[320px] bg-white dark:bg-[#1f1f1f] rounded-[32px] shadow-xl p-6 space-y-4 border border-slate-100 dark:border-white/10">
+                <div class="flex items-center gap-1 text-yellow-400">
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                </div>
+                <p class="text-sm text-slate-600 dark:text-slate-300">J’ai eu les références de Nathalie en dernière minute... Je ne peux que recommander nat-patoune pour la qualité de ses services, son sérieux et sa douceur. Je ne peux que recommander.</p>
+                <p class="font-semibold">Sandrine</p>
+              </article>
+              <article class="min-w-[280px] max-w-[320px] bg-white dark:bg-[#1f1f1f] rounded-[32px] shadow-xl p-6 space-y-4 border border-slate-100 dark:border-white/10">
+                <div class="flex items-center gap-3">
+                  <img src="assets/img/avis-uranus.webp" alt="Avis Uranus" class="h-12 w-12 rounded-full object-cover" />
+                  <div>
+                    <p class="font-semibold">Jo'</p>
+                    <div class="flex items-center gap-1 text-yellow-400 text-sm">
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                    </div>
+                  </div>
+                </div>
+                <p class="text-sm text-slate-600 dark:text-slate-300">J'ai fait appel à Nat'Patoune pour mon bébé chat Uranus... Nathalie a été attentive, douce et très professionnelle. Je suis partie l'esprit tranquille et Uranus aussi.</p>
+              </article>
+              <article class="min-w-[280px] max-w-[320px] bg-white dark:bg-[#1f1f1f] rounded-[32px] shadow-xl p-6 space-y-4 border border-slate-100 dark:border-white/10">
+                <div class="flex items-center gap-3">
+                  <img src="assets/img/avis-luna.webp" alt="Avis Luna" class="h-12 w-12 rounded-full object-cover" />
+                  <div>
+                    <p class="font-semibold">Valérie</p>
+                    <div class="flex items-center gap-1 text-yellow-400 text-sm">
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                    </div>
+                  </div>
+                </div>
+                <p class="text-sm text-slate-600 dark:text-slate-300">Nathalie s'occupe de Luna régulièrement... Elle respecte les habitudes de Luna, donne des nouvelles détaillées et apporte une vraie tranquillité d'esprit.</p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="galerie" class="py-16 bg-brand-beige dark:bg-brand-dark">
+      <div class="max-w-6xl mx-auto px-4">
+        <div class="text-center mb-12 space-y-2">
+          <p class="text-brand-pink font-semibold uppercase tracking-wide">Galerie</p>
+          <h2 class="font-title text-3xl md:text-4xl font-bold">Instants de douceur</h2>
+        </div>
+        <div class="grid md:grid-cols-3 gap-6">
+          <div class="overflow-hidden rounded-[32px] shadow-xl">
+            <img src="assets/img/galerie-chat-1.webp" alt="Galerie chat 1" class="w-full h-56 object-cover transition duration-300 hover:scale-105" />
+          </div>
+          <div class="overflow-hidden rounded-[32px] shadow-xl">
+            <img src="assets/img/galerie-chat-2.webp" alt="Galerie chat 2" class="w-full h-56 object-cover transition duration-300 hover:scale-105" />
+          </div>
+          <div class="overflow-hidden rounded-[32px] shadow-xl">
+            <img src="assets/img/galerie-chat-3.webp" alt="Galerie chat 3" class="w-full h-56 object-cover transition duration-300 hover:scale-105" />
+          </div>
+          <div class="overflow-hidden rounded-[32px] shadow-xl">
+            <img src="assets/img/galerie-chat-4.webp" alt="Galerie chat 4" class="w-full h-56 object-cover transition duration-300 hover:scale-105" />
+          </div>
+          <div class="overflow-hidden rounded-[32px] shadow-xl">
+            <img src="assets/img/galerie-chat-5.webp" alt="Galerie chat 5" class="w-full h-56 object-cover transition duration-300 hover:scale-105" />
+          </div>
+          <div class="overflow-hidden rounded-[32px] shadow-xl">
+            <img src="assets/img/galerie-chat-6.webp" alt="Galerie chat 6" class="w-full h-56 object-cover transition duration-300 hover:scale-105" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="blog" class="py-16 bg-white dark:bg-[#111111]">
+      <div class="max-w-6xl mx-auto px-4">
+        <div class="text-center mb-12 space-y-2">
+          <p class="text-brand-pink font-semibold uppercase tracking-wide">Blog</p>
+          <h2 class="font-title text-3xl md:text-4xl font-bold">Conseils et bien-être félin</h2>
+        </div>
+        <div id="blog-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+      </div>
+    </section>
+
+    <section id="contact" class="py-16 bg-brand-beige dark:bg-brand-dark">
+      <div class="max-w-6xl mx-auto px-4">
+        <div class="grid lg:grid-cols-2 gap-10 items-center">
+          <div class="space-y-6">
+            <p class="text-brand-pink font-semibold uppercase tracking-wide">Contact</p>
+            <h2 class="font-title text-3xl md:text-4xl font-bold">Parlons de votre chat</h2>
+            <p class="text-slate-600 dark:text-slate-300">Contactez Nathalie pour préparer vos visites et sécuriser vos absences en toute confiance.</p>
+          </div>
+          <div class="bg-white dark:bg-[#1f1f1f] rounded-[32px] shadow-xl p-6 space-y-4 border border-slate-100 dark:border-white/10">
+            <div class="flex items-center gap-3">
+              <i class="fa-solid fa-location-dot text-brand-purple"></i>
+              <span>Canton de Vaud</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <i class="fa-solid fa-phone text-brand-purple"></i>
+              <a href="tel:+41790000000">+41 79 000 00 00</a>
+            </div>
+            <div class="flex items-center gap-3">
+              <i class="fa-solid fa-envelope text-brand-purple"></i>
+              <a href="mailto:miaou@nat-patoune.ch">miaou@nat-patoune.ch</a>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="container site-footer__grid">
-      <div>
-        <img src="assets/img/logo-natpatoune.svg" alt="Nat'Patoune" class="site-footer__logo" />
-        <p>Nat'Patoune, cat-sitting professionnel dans le canton de Vaud.</p>
+  <footer class="bg-white dark:bg-[#111111] border-t border-slate-200 dark:border-white/10">
+    <div class="max-w-6xl mx-auto px-4 py-12 grid md:grid-cols-3 gap-8">
+      <div class="space-y-4">
+        <img src="assets/img/logo-natpatoune.svg" alt="Nat'Patoune" class="h-10" />
+        <p class="text-sm text-slate-600 dark:text-slate-300">Cat-sitting professionnel en Suisse romande, avec douceur et vigilance.</p>
       </div>
-      <div>
-        <h3 class="heading heading--sm">Navigation</h3>
-        <ul>
-          <li><a href="#accueil">Accueil</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#protocoles">Protocoles</a></li>
-          <li><a href="#zones-tarifs">Tarifs</a></li>
-          <li><a href="#blog">Blog</a></li>
-        </ul>
+      <div class="space-y-2 text-sm">
+        <h4 class="font-title font-bold">Coordonnées</h4>
+        <p>Rue des Félins 12, 1110 Morges</p>
+        <p><a href="tel:+41790000000">+41 79 000 00 00</a></p>
+        <p><a href="mailto:miaou@nat-patoune.ch">miaou@nat-patoune.ch</a></p>
       </div>
-      <div>
-        <h3 class="heading heading--sm">Zones</h3>
-        <ul>
-          <li>Zone 1 : Morges et environs</li>
-          <li>Zone 2 : Lausanne et Ouest</li>
-          <li>Zone 3 : Échallens et environs</li>
-        </ul>
-      </div>
-      <div>
-        <h3 class="heading heading--sm">Newsletter</h3>
-        <p>Recevez les conseils Nat'Patoune.</p>
-        <form class="newsletter-form" action="https://formspree.io/f/your-id" method="POST" data-redirect="merci.html">
-          <input type="email" name="email" required placeholder="Votre email" />
-          <label class="checkbox">
-            <input type="checkbox" name="consentement" required />
-            <span>J'accepte de recevoir des conseils par email.</span>
-          </label>
-          <input type="hidden" name="_subject" value="Nouvelle inscription newsletter - Footer" />
-          <button type="submit" class="btn btn--accent">Je m'inscris</button>
-          <p class="newsletter-message" data-newsletter-message></p>
-        </form>
+      <div class="space-y-3 text-sm">
+        <h4 class="font-title font-bold">Légal</h4>
+        <button data-modal-target="cgv-modal" class="underline w-fit">CGV</button>
+        <button data-modal-target="mentions-modal" class="underline w-fit">Mentions Légales</button>
+        <button data-modal-target="confidentialite-modal" class="underline w-fit">Confidentialité</button>
       </div>
     </div>
-    <div class="container site-footer__bottom">
-      <p>&copy; 2025 Nat'Patoune. Tous droits réservés.</p>
-      <p>Site créé par Agence Clicom.ch</p>
-    </div>
+    <div class="border-t border-slate-200 dark:border-white/10 text-center text-xs text-slate-500 py-4">Site créé par Agence Clicom.ch</div>
   </footer>
 
-  <div class="floating-actions">
-    <a href="https://wa.me/41787685047" class="floating-actions__button" aria-label="WhatsApp">
-      <i class="fab fa-whatsapp" aria-hidden="true"></i>
+  <div id="cookie-banner" class="fixed bottom-0 left-0 right-0 bg-slate-900 text-white px-4 py-4 hidden">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row md:items-center md:justify-between gap-4 text-sm">
+      <p>Nous utilisons des cookies pour améliorer votre expérience. Vous pouvez accepter ou refuser le dépôt.</p>
+      <div class="flex gap-3">
+        <button id="accept-cookies" class="bg-brand-purple hover:bg-brand-purple-dark px-4 py-2 rounded-2xl shadow-lg transition hover:scale-105">Accepter</button>
+        <button id="refuse-cookies" class="bg-white text-slate-900 px-4 py-2 rounded-2xl shadow-lg transition hover:scale-105">Refuser</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="loyalty-popup" class="fixed inset-0 bg-black/50 hidden items-center justify-center z-50">
+    <div class="bg-white dark:bg-[#1f1f1f] rounded-[32px] p-8 max-w-md w-full relative border border-slate-100 dark:border-white/10">
+      <button id="close-loyalty" class="absolute top-4 right-4 text-slate-500" aria-label="Fermer">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <div class="space-y-4 text-center">
+        <div class="text-3xl text-brand-purple"><i class="fa-solid fa-paw"></i></div>
+        <h3 class="font-title text-2xl font-bold">11ème visite offerte</h3>
+        <p class="text-slate-600 dark:text-slate-300">Profitez de notre programme fidélité : après 10 visites, la 11ème est offerte.</p>
+        <a href="#contact" class="bg-brand-purple hover:bg-brand-purple-dark text-white px-6 py-3 rounded-2xl shadow-lg transition hover:scale-105 inline-block">Je découvre</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="fixed bottom-6 right-6 flex flex-col gap-3 z-40">
+    <a href="https://wa.me/41790000000" class="h-12 w-12 rounded-2xl bg-green-500 text-white flex items-center justify-center shadow-lg transition hover:scale-105" aria-label="WhatsApp">
+      <i class="fa-brands fa-whatsapp"></i>
     </a>
-    <a href="tel:+41787685047" class="floating-actions__button floating-actions__button--accent" aria-label="Téléphone">
-      <i class="fas fa-phone" aria-hidden="true"></i>
+    <a href="tel:+41790000000" class="h-12 w-12 rounded-2xl bg-brand-purple text-white flex items-center justify-center shadow-lg transition hover:scale-105" aria-label="Téléphone">
+      <i class="fa-solid fa-phone"></i>
     </a>
-    <button id="scroll-top" class="floating-actions__button floating-actions__button--primary" aria-label="Retour en haut" type="button">
-      <i class="fas fa-arrow-up" aria-hidden="true"></i>
+    <button id="back-to-top" class="h-12 w-12 rounded-2xl bg-slate-900 text-white flex items-center justify-center shadow-lg transition hover:scale-105" aria-label="Retour en haut">
+      <i class="fa-solid fa-arrow-up"></i>
     </button>
   </div>
 
-  <div id="modal-certificat" class="modal is-hidden" role="dialog" aria-modal="true" aria-label="Certificat">
-    <div class="modal__media">
-      <button id="certificat-close" class="modal__close" aria-label="Fermer" type="button">
-        <i class="fas fa-times" aria-hidden="true"></i>
+  <div id="blog-modal" class="fixed inset-0 bg-black/50 hidden items-center justify-center z-50">
+    <div class="bg-white dark:bg-[#1f1f1f] rounded-[32px] p-8 max-w-2xl w-full relative border border-slate-100 dark:border-white/10">
+      <button id="close-blog-modal" class="absolute top-4 right-4 text-slate-500" aria-label="Fermer">
+        <i class="fa-solid fa-xmark"></i>
       </button>
-      <img src="assets/img/certificat-cat-sitter-nathalie-piguet.webp" alt="Certificat" />
+      <div id="blog-modal-content" class="space-y-4"></div>
     </div>
   </div>
 
-  <div id="modal-cgv" class="modal is-hidden" role="dialog" aria-modal="true" aria-label="Conditions Générales">
-    <div class="modal__sheet">
-      <div class="modal__header">
-        <h3 class="heading heading--sm">Conditions Générales</h3>
-        <button class="modal__close modal-close" data-close="modal-cgv" aria-label="Fermer" type="button"><i class="fas fa-times" aria-hidden="true"></i></button>
-      </div>
-      <div class="modal__content">
-        <p><strong>Nat'Patoune - 2025</strong><br><strong>Conditions Générales de Nat'Patoune</strong><br>Garde de chats à domicile</p>
-        <div>
-          <p class="modal__title">1. Présentation</p>
-          <p>Nat'Patoune est un service professionnel de garde de chats à domicile et de vigilance du domicile dans le canton de Vaud. Les prestations sont assurées au domicile du propriétaire afin de préserver les habitudes et le confort du chat.</p>
-        </div>
-        <div>
-          <p class="modal__title">2. Pré-visite</p>
-          <p>Une pré-visite est obligatoire avant toute prestation. Elle permet de recueillir les informations essentielles, d'établir les consignes, d'identifier les besoins du chat et de confirmer les modalités d'accès au logement.</p>
-        </div>
-        <div>
-          <p class="modal__title">3. Paiement</p>
-          <p>Le règlement est dû au plus tard le premier jour de prestation. Les moyens acceptés sont le virement bancaire, le paiement mobile et le paiement en espèces.</p>
-        </div>
-        <div>
-          <p class="modal__title">4. Annulation</p>
-          <p>En cas d'annulation à moins de 48h du début de la prestation, 50% du montant total reste dû. Toute annulation doit être communiquée par écrit.</p>
-        </div>
-        <div>
-          <p class="modal__title">5. Urgences</p>
-          <p>En cas d'urgence médicale, Nat'Patoune contacte en priorité le vétérinaire habituel ou le service d'urgence. Les frais vétérinaires, pharmaceutiques et de déplacement sont à la charge du propriétaire.</p>
-        </div>
-        <div>
-          <p class="modal__title">6. Soins</p>
-          <p>Les soins médicaux sont administrés conformément aux consignes détaillées du propriétaire. Le propriétaire demeure responsable des indications fournies et des traitements prescrits.</p>
-        </div>
-        <div>
-          <p class="modal__title">7. Fournitures</p>
-          <p>Le propriétaire fournit la nourriture, la litière et les médicaments nécessaires. En cas de manque, l'approvisionnement est facturé sur présentation des justificatifs.</p>
-        </div>
-        <div>
-          <p class="modal__title">8. Sécurité</p>
-          <p>Le propriétaire s'engage à sécuriser l'environnement du chat avant son départ. Nat'Patoune ne peut être tenue responsable d'un environnement non sécurisé.</p>
-        </div>
-        <div>
-          <p class="modal__title">9. Photos</p>
-          <p>Des photos peuvent être envoyées au propriétaire. Toute utilisation publique de ces contenus nécessite une autorisation préalable et écrite.</p>
-        </div>
-        <div>
-          <p class="modal__title">10. Tarifs</p>
-          <p>Les tarifs peuvent évoluer. Toute modification n'affecte pas les prestations déjà confirmées.</p>
-        </div>
+  <div id="cgv-modal" class="fixed inset-0 bg-black/50 hidden items-center justify-center z-50">
+    <div class="bg-white dark:bg-[#1f1f1f] rounded-[32px] p-8 max-w-3xl w-full relative overflow-y-auto max-h-[90vh] border border-slate-100 dark:border-white/10">
+      <button data-modal-close class="absolute top-4 right-4 text-slate-500" aria-label="Fermer">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <h3 class="font-title text-2xl font-bold mb-4">Conditions Générales de Vente</h3>
+      <div class="space-y-4 text-sm text-slate-600 dark:text-slate-300">
+        <p><strong>Article 1 :</strong> Les présentes conditions encadrent les prestations de garde de chats à domicile proposées par Nat'Patoune dans le canton de Vaud.</p>
+        <p><strong>Article 2 :</strong> Une pré-visite offerte permet de définir les besoins, les accès et les consignes de sécurité.</p>
+        <p><strong>Article 3 :</strong> Le paiement est dû avant le début de la prestation, par virement ou espèces lors de la pré-visite.</p>
+        <p><strong>Article 4 :</strong> Toute annulation à moins de 48h entraîne une facturation de 50% des prestations réservées.</p>
+        <p><strong>Article 5 :</strong> En cas d'urgence, Nat'Patoune contacte le propriétaire et, si nécessaire, le vétérinaire désigné.</p>
       </div>
     </div>
   </div>
 
-  <div id="modal-mentions" class="modal is-hidden" role="dialog" aria-modal="true" aria-label="Mentions légales">
-    <div class="modal__sheet">
-      <div class="modal__header">
-        <h3 class="heading heading--sm">Mentions légales</h3>
-        <button class="modal__close modal-close" data-close="modal-mentions" aria-label="Fermer" type="button"><i class="fas fa-times" aria-hidden="true"></i></button>
-      </div>
-      <div class="modal__content">
-        <p>Les présentes mentions légales s'appliquent au site <strong>nat-patoune.ch</strong>.</p>
-        <p class="modal__title">1. Éditeur du site</p>
-        <p><strong>Nat'Patoune</strong><br>Représentée par : <strong>Madame Nathalie Piguet</strong><br>Siège (localité) : <strong>Saint-Saphorin-sur-Morges, Vaud, Suisse</strong><br>Téléphone : <a href="tel:+41787685047">+41 78 768 50 47</a><br>Email : <a href="mailto:miaou@nat-patoune.ch">miaou@nat-patoune.ch</a></p>
-        <p class="modal__title">2. Hébergement</p>
-        <p><strong>Hostinger International Ltd.</strong><br>61 Lordou Vironos Street, 6023 Larnaca, Chypre.</p>
-        <p class="modal__title">3. Propriété intellectuelle</p>
-        <p>Le Site et l'ensemble de ses contenus (textes, images, vidéos, graphismes, logos, éléments de design, structure) sont protégés par le droit d'auteur et, le cas échéant, par le droit des marques. Toute reproduction, représentation, modification, publication, adaptation, totale ou partielle, de tout ou partie des éléments du Site, quel que soit le moyen ou le procédé utilisé, est interdite sans autorisation écrite préalable de Nat'Patoune.</p>
-        <p class="modal__title">4. Responsabilité</p>
-        <p>Nat'Patoune s'efforce d'assurer l'exactitude et la mise à jour des informations diffusées sur le Site. Toutefois, Nat'Patoune ne peut garantir l'exactitude, la précision ou l'exhaustivité des informations mises à disposition. L'utilisation du Site se fait sous la seule responsabilité de l'utilisateur.</p>
-        <p class="modal__title">5. Liens externes</p>
-        <p>Le Site peut contenir des liens vers des sites tiers. Nat'Patoune n'exerce aucun contrôle sur ces sites et décline toute responsabilité quant à leur contenu, leurs pratiques ou leur disponibilité.</p>
-        <p class="modal__title">6. Données personnelles et cookies</p>
-        <p>Les traitements de données personnelles et l'usage des cookies sont décrits dans la Politique de confidentialité accessible depuis le Site ainsi que via la bannière cookies.</p>
-        <p class="modal__title">7. Droit applicable et for juridique</p>
-        <p>Les présentes mentions légales sont soumises au droit suisse. Sous réserve de dispositions légales impératives, le for est situé dans le canton de Vaud, Suisse.</p>
+  <div id="mentions-modal" class="fixed inset-0 bg-black/50 hidden items-center justify-center z-50">
+    <div class="bg-white dark:bg-[#1f1f1f] rounded-[32px] p-8 max-w-2xl w-full relative overflow-y-auto max-h-[90vh] border border-slate-100 dark:border-white/10">
+      <button data-modal-close class="absolute top-4 right-4 text-slate-500" aria-label="Fermer">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <h3 class="font-title text-2xl font-bold mb-4">Mentions Légales</h3>
+      <div class="space-y-4 text-sm text-slate-600 dark:text-slate-300">
+        <p><strong>Éditeur :</strong> Nathalie Piguet, Nat'Patoune, cat-sitting en Suisse.</p>
+        <p><strong>Contact :</strong> miaou@nat-patoune.ch</p>
+        <p><strong>Hébergeur :</strong> Hostinger International Ltd, 61 Lordou Vironos Street, 6023 Larnaca, Chypre.</p>
       </div>
     </div>
   </div>
 
-  <div id="modal-privacy" class="modal is-hidden" role="dialog" aria-modal="true" aria-label="Politique de confidentialité">
-    <div class="modal__sheet">
-      <div class="modal__header">
-        <h3 class="heading heading--sm">Politique de confidentialité</h3>
-        <button class="modal__close modal-close" data-close="modal-privacy" aria-label="Fermer" type="button"><i class="fas fa-times" aria-hidden="true"></i></button>
-      </div>
-      <div class="modal__content">
-        <p><strong>Politique de confidentialité</strong><br>Nat'Patoune, dont le siège est à Saint-Saphorin-sur-Morges, canton de Vaud, Suisse, informe les utilisateurs du site internet [www.nat-patoune.ch] ainsi que ses clients, par la présente politique de confidentialité, des traitements de données qu'elle réalise en tant que responsable de traitement.</p>
-        <p class="modal__title">1. Champ d'application</p>
-        <p>La présente politique de confidentialité s'applique quel que soit le moyen ou le support utilisé pour accéder à notre site internet et expose les conditions dans lesquelles, lors de votre navigation, nous collectons, utilisons et conservons des informations vous concernant.</p>
-        <p class="modal__title">2. Données collectées</p>
-        <p>Lors de votre navigation sur notre site internet, nous pouvons collecter les informations suivantes :</p>
-        <ul>
-          <li>Votre adresse IP</li>
-          <li>La date et l'heure de votre visite</li>
-          <li>Le navigateur utilisé</li>
-          <li>Le type d'appareil utilisé pour vous connecter</li>
-        </ul>
-        <p>Lorsque vous remplissez un formulaire de contact ou demandez un devis, nous collectons, avec votre consentement :</p>
-        <ul>
-          <li>Votre nom et prénom</li>
-          <li>Votre adresse électronique</li>
-          <li>Votre adresse postale</li>
-          <li>Votre numéro de téléphone</li>
-        </ul>
-        <p class="modal__title">3. Finalités d'utilisation des données</p>
-        <ul>
-          <li><strong>Fourniture de services :</strong> nous utilisons vos données pour répondre à vos demandes de contact ou d'information.</li>
-          <li><strong>Personnalisation :</strong> nous analysons vos préférences pour améliorer votre expérience sur le site.</li>
-          <li><strong>Intérêts légitimes :</strong> nous pouvons utiliser vos données pour surveiller l'usage du site.</li>
-        </ul>
-        <p class="modal__title">4. Cookies</p>
-        <p>Nous utilisons des cookies pour garantir le bon fonctionnement du site et analyser les visites.</p>
-        <ul>
-          <li><strong>Cookies nécessaires :</strong> indispensables au fonctionnement du site et aux formulaires de contact.</li>
-          <li><strong>Cookies de performance :</strong> permettent de mesurer la fréquentation du site et améliorer son contenu.</li>
-        </ul>
-        <p class="modal__title">5. Vos droits</p>
-        <p>Vous pouvez demander l'accès, la rectification, la transmission ou l'effacement de vos données personnelles en nous contactant via notre formulaire de contact ou par e-mail à miaou@nat-patoune.ch.</p>
-        <p class="modal__title">6. Contact</p>
-        <p>Pour toute question concernant cette Politique ou vos données personnelles, contactez-nous à : miaou@nat-patoune.ch.</p>
+  <div id="confidentialite-modal" class="fixed inset-0 bg-black/50 hidden items-center justify-center z-50">
+    <div class="bg-white dark:bg-[#1f1f1f] rounded-[32px] p-8 max-w-3xl w-full relative overflow-y-auto max-h-[90vh] border border-slate-100 dark:border-white/10">
+      <button data-modal-close class="absolute top-4 right-4 text-slate-500" aria-label="Fermer">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <h3 class="font-title text-2xl font-bold mb-4">Politique de Confidentialité</h3>
+      <div class="space-y-4 text-sm text-slate-600 dark:text-slate-300">
+        <p>Cette politique décrit la manière dont Nat'Patoune collecte, utilise et protège les données personnelles conformément à la nLPD suisse.</p>
+        <p><strong>Données collectées :</strong> nom, coordonnées, informations de contact, dates de prestation et messages envoyés via les formulaires.</p>
+        <p><strong>Finalités :</strong> répondre aux demandes, organiser les visites et communiquer les informations liées aux prestations.</p>
+        <p><strong>Conservation :</strong> les données sont conservées le temps nécessaire au suivi client et peuvent être supprimées sur demande.</p>
+        <p><strong>Partage :</strong> aucune donnée n'est vendue ou cédée. Les informations ne sont partagées qu'avec les prestataires indispensables.</p>
+        <p><strong>Sécurité :</strong> des mesures techniques et organisationnelles protègent les données contre l'accès non autorisé.</p>
+        <p><strong>Droits :</strong> vous pouvez demander l'accès, la rectification ou la suppression de vos données à tout moment.</p>
+        <p><strong>Contact :</strong> pour toute question, écrire à miaou@nat-patoune.ch.</p>
       </div>
     </div>
   </div>
 
-  <div id="modal-gift" class="modal is-hidden" role="dialog" aria-modal="true" aria-label="Bon Cadeau Nat'Patoune">
-    <div class="modal__card">
-      <button id="gift-close" class="modal__close" aria-label="Fermer" type="button"><i class="fas fa-times" aria-hidden="true"></i></button>
-      <h3 class="heading heading--md">Bon Cadeau Nat'Patoune</h3>
-      <p>Indiquez votre email pour recevoir les informations.</p>
-      <form class="form">
-        <input type="email" required placeholder="Votre email" />
-        <button type="submit" class="btn btn--primary">Recevoir les détails</button>
-      </form>
-    </div>
-  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const mobileToggle = document.getElementById('mobile-menu-toggle');
+      const mobileMenu = document.getElementById('mobile-menu');
+      if (mobileToggle && mobileMenu) {
+        mobileToggle.addEventListener('click', () => {
+          mobileMenu.classList.toggle('hidden');
+        });
+      }
 
-  <script src="assets/js/main.js" defer></script>
-  <script src="assets/js/newsletter.js" defer></script>
+      const backToTop = document.getElementById('back-to-top');
+      if (backToTop) {
+        backToTop.addEventListener('click', () => {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+      }
+
+      const cookieBanner = document.getElementById('cookie-banner');
+      const acceptCookies = document.getElementById('accept-cookies');
+      const refuseCookies = document.getElementById('refuse-cookies');
+      const cookieChoice = localStorage.getItem('natpatoune-cookie');
+      if (cookieBanner && !cookieChoice) {
+        cookieBanner.classList.remove('hidden');
+      }
+      if (acceptCookies) {
+        acceptCookies.addEventListener('click', () => {
+          localStorage.setItem('natpatoune-cookie', 'accepted');
+          if (cookieBanner) {
+            cookieBanner.classList.add('hidden');
+          }
+        });
+      }
+      if (refuseCookies) {
+        refuseCookies.addEventListener('click', () => {
+          localStorage.setItem('natpatoune-cookie', 'refused');
+          if (cookieBanner) {
+            cookieBanner.classList.add('hidden');
+          }
+        });
+      }
+
+      const loyaltyPopup = document.getElementById('loyalty-popup');
+      const closeLoyalty = document.getElementById('close-loyalty');
+      const loyaltySeen = localStorage.getItem('natpatoune-loyalty');
+      if (loyaltyPopup && !loyaltySeen) {
+        setTimeout(() => {
+          loyaltyPopup.classList.remove('hidden');
+          loyaltyPopup.classList.add('flex');
+        }, 5000);
+      }
+      if (closeLoyalty) {
+        closeLoyalty.addEventListener('click', () => {
+          if (loyaltyPopup) {
+            loyaltyPopup.classList.add('hidden');
+            loyaltyPopup.classList.remove('flex');
+          }
+          localStorage.setItem('natpatoune-loyalty', 'closed');
+        });
+      }
+
+      const modalButtons = document.querySelectorAll('[data-modal-target]');
+      if (modalButtons.length) {
+        modalButtons.forEach((button) => {
+          const targetId = button ? button.getAttribute('data-modal-target') : null;
+          const targetModal = targetId ? document.getElementById(targetId) : null;
+          if (button && targetModal) {
+            button.addEventListener('click', () => {
+              targetModal.classList.remove('hidden');
+              targetModal.classList.add('flex');
+            });
+          }
+        });
+      }
+
+      const modalCloseButtons = document.querySelectorAll('[data-modal-close]');
+      if (modalCloseButtons.length) {
+        modalCloseButtons.forEach((button) => {
+          if (button) {
+            button.addEventListener('click', () => {
+              const modal = button.closest('.fixed');
+              if (modal) {
+                modal.classList.add('hidden');
+                modal.classList.remove('flex');
+              }
+            });
+          }
+        });
+      }
+
+      const blogArticles = [
+        {
+          category: 'Bien-être',
+          title: 'Pourquoi la garde à domicile réduit-elle le stress de votre chat ?',
+          summary: 'Une solution apaisante qui respecte l’environnement familier et réduit les changements brusques.',
+          content: 'Rester dans son environnement réduit l’anxiété, maintient les repères olfactifs et préserve la routine alimentaire. La garde à domicile permet de garder les mêmes horaires et un espace stable, avec des interactions douces qui favorisent le bien-être émotionnel.',
+          image: 'assets/img/garde-chat-domicile-sans-stress-vaud.webp'
+        },
+        {
+          category: 'Vacances',
+          title: 'Vacances tranquilles : faire garder son chat à domicile dans le canton de Vaud',
+          summary: 'Une solution locale et rassurante pour partir l’esprit léger.',
+          content: 'Les visites à domicile évitent le stress des transports et garantissent une continuité. Avec un protocole clair, la prise en charge locale assure hydratation, nourriture, litière et moments de jeu, tout en rassurant les propriétaires avec des nouvelles régulières.',
+          image: 'assets/img/cat-sitting-domicile-vacances-suisse.webp'
+        },
+        {
+          category: 'Soins/Anxieux',
+          title: 'Chat âgé ou anxieux : pourquoi le cat-sitting est indispensable',
+          summary: 'Un suivi doux et régulier qui répond aux besoins sensibles.',
+          content: 'Les chats âgés ou anxieux ont besoin de routines stables. La présence d’une professionnelle permet d’adapter les visites, de surveiller les habitudes alimentaires et de détecter rapidement les changements de comportement.',
+          image: 'assets/img/cat-sitter-chat-age-anxieux-nat-patoune.webp'
+        },
+        {
+          category: 'Hydratation',
+          title: 'Hydratation du chat : astuces simples pour l’encourager à boire',
+          summary: 'Des solutions faciles pour préserver la santé rénale et le confort.',
+          content: 'Multiplier les points d’eau, varier les contenants et proposer des fontaines peut encourager l’hydratation. Des bouillons sans sel ou une nourriture humide complètent efficacement l’apport quotidien.',
+          image: 'assets/img/galerie-chat-1.webp'
+        },
+        {
+          category: 'Hygiène',
+          title: 'Litière parfaite : emplacement, nettoyage et erreurs à éviter',
+          summary: 'Un environnement propre limite le stress et favorise une bonne santé.',
+          content: 'La litière doit être placée dans une zone calme, nettoyée quotidiennement et choisie selon les préférences du chat. Éviter les parfums agressifs et respecter un bac par chat améliore le confort.',
+          image: 'assets/img/chaton-cache-couverture.webp'
+        },
+        {
+          category: 'Jeux',
+          title: 'Jeux et stimulation : 10 minutes par jour qui changent tout',
+          summary: 'Un rituel simple pour prévenir l’ennui et renforcer le lien.',
+          content: 'Des sessions courtes mais régulières avec plumeaux, balles ou parcours stimulent l’instinct de chasse. Elles aident aussi à canaliser l’énergie et à renforcer la confiance envers l’humain.',
+          image: 'assets/img/galerie-chat-2.webp'
+        }
+      ];
+
+      const blogGrid = document.getElementById('blog-grid');
+      const blogModal = document.getElementById('blog-modal');
+      const blogModalContent = document.getElementById('blog-modal-content');
+      const closeBlogModal = document.getElementById('close-blog-modal');
+
+      if (blogGrid) {
+        blogArticles.forEach((article) => {
+          const card = document.createElement('button');
+          card.type = 'button';
+          card.className = 'text-left bg-white dark:bg-[#1f1f1f] rounded-[32px] shadow-xl border border-slate-100 dark:border-white/10 overflow-hidden transition hover:scale-105';
+          card.innerHTML = `
+            <img src="${article.image}" alt="${article.title}" class="w-full h-44 object-cover" />
+            <div class="p-5 space-y-3">
+              <span class="text-xs uppercase tracking-wide text-brand-pink font-semibold">${article.category}</span>
+              <h3 class="font-title text-lg font-bold">${article.title}</h3>
+              <p class="text-sm text-slate-600 dark:text-slate-300">${article.summary}</p>
+              <span class="text-sm text-brand-purple font-semibold">Lire l'article</span>
+            </div>
+          `;
+          card.addEventListener('click', () => {
+            if (blogModal && blogModalContent) {
+              blogModalContent.innerHTML = `
+                <img src="${article.image}" alt="${article.title}" class="w-full h-52 object-cover rounded-[24px]" />
+                <div class="space-y-3">
+                  <span class="text-xs uppercase tracking-wide text-brand-pink font-semibold">${article.category}</span>
+                  <h3 class="font-title text-2xl font-bold">${article.title}</h3>
+                  <p class="text-slate-600 dark:text-slate-300">${article.content}</p>
+                </div>
+              `;
+              blogModal.classList.remove('hidden');
+              blogModal.classList.add('flex');
+            }
+          });
+          blogGrid.appendChild(card);
+        });
+      }
+
+      if (closeBlogModal && blogModal) {
+        closeBlogModal.addEventListener('click', () => {
+          blogModal.classList.add('hidden');
+          blogModal.classList.remove('flex');
+        });
+      }
+    });
+  </script>
 </body>
 </html>
