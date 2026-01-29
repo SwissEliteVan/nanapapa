@@ -3,7 +3,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const mobileMenu = document.getElementById('mobile-menu');
   if (burger && mobileMenu) {
     burger.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
+      const isOpen = !mobileMenu.classList.contains('is-hidden');
+      mobileMenu.classList.toggle('is-hidden');
+      burger.setAttribute('aria-expanded', String(!isOpen));
     });
   }
 
@@ -29,13 +31,13 @@ document.addEventListener('DOMContentLoaded', () => {
   const cookieAccept = document.getElementById('cookie-accept');
   const cookieDecline = document.getElementById('cookie-decline');
   if (cookieBanner && !localStorage.getItem('cookieConsent')) {
-    cookieBanner.classList.remove('hidden');
+    cookieBanner.classList.remove('is-hidden');
   }
   if (cookieAccept) {
     cookieAccept.addEventListener('click', () => {
       localStorage.setItem('cookieConsent', 'accepted');
       if (cookieBanner) {
-        cookieBanner.classList.add('hidden');
+        cookieBanner.classList.add('is-hidden');
       }
     });
   }
@@ -43,7 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
     cookieDecline.addEventListener('click', () => {
       localStorage.setItem('cookieConsent', 'declined');
       if (cookieBanner) {
-        cookieBanner.classList.add('hidden');
+        cookieBanner.classList.add('is-hidden');
       }
     });
   }
@@ -52,14 +54,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const loyaltyClose = document.getElementById('loyalty-close');
   if (loyaltyPopup && !localStorage.getItem('loyaltyPopupSeen')) {
     setTimeout(() => {
-      loyaltyPopup.classList.remove('hidden');
-      loyaltyPopup.classList.add('flex');
+      loyaltyPopup.classList.remove('is-hidden');
     }, 5000);
   }
   if (loyaltyClose && loyaltyPopup) {
     loyaltyClose.addEventListener('click', () => {
-      loyaltyPopup.classList.add('hidden');
-      loyaltyPopup.classList.remove('flex');
+      loyaltyPopup.classList.add('is-hidden');
       localStorage.setItem('loyaltyPopupSeen', 'true');
     });
   }
@@ -69,14 +69,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const giftClose = document.getElementById('gift-close');
   if (giftOpen && giftModal) {
     giftOpen.addEventListener('click', () => {
-      giftModal.classList.remove('hidden');
-      giftModal.classList.add('flex');
+      giftModal.classList.remove('is-hidden');
     });
   }
   if (giftClose && giftModal) {
     giftClose.addEventListener('click', () => {
-      giftModal.classList.add('hidden');
-      giftModal.classList.remove('flex');
+      giftModal.classList.add('is-hidden');
     });
   }
 
@@ -85,14 +83,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const certificatClose = document.getElementById('certificat-close');
   if (certificatOpen && certificatModal) {
     certificatOpen.addEventListener('click', () => {
-      certificatModal.classList.remove('hidden');
-      certificatModal.classList.add('flex');
+      certificatModal.classList.remove('is-hidden');
     });
   }
   if (certificatClose && certificatModal) {
     certificatClose.addEventListener('click', () => {
-      certificatModal.classList.add('hidden');
-      certificatModal.classList.remove('flex');
+      certificatModal.classList.add('is-hidden');
     });
   }
 
@@ -101,8 +97,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const modalId = button.getAttribute('data-modal');
       const modal = modalId ? document.getElementById(modalId) : null;
       if (modal) {
-        modal.classList.remove('hidden');
-        modal.classList.add('flex');
+        modal.classList.remove('is-hidden');
       }
     });
   });
@@ -112,18 +107,16 @@ document.addEventListener('DOMContentLoaded', () => {
       const modalId = button.getAttribute('data-close');
       const modal = modalId ? document.getElementById(modalId) : null;
       if (modal) {
-        modal.classList.add('hidden');
-        modal.classList.remove('flex');
+        modal.classList.add('is-hidden');
       }
     });
   });
 
-  [certificatModal, giftModal].forEach((modal) => {
+  [certificatModal, giftModal, loyaltyPopup].forEach((modal) => {
     if (modal) {
       modal.addEventListener('click', (event) => {
         if (event.target === modal) {
-          modal.classList.add('hidden');
-          modal.classList.remove('flex');
+          modal.classList.add('is-hidden');
         }
       });
     }
@@ -140,23 +133,25 @@ document.addEventListener('DOMContentLoaded', () => {
           .slice(0, 3)
           .forEach((post) => {
             const card = document.createElement('article');
-            card.className = 'bg-brand-cream rounded-2xl p-4 shadow-soft flex flex-col h-full';
+            card.className = 'blog-card';
             card.innerHTML = `
-              <a href="blog/post.html?slug=${post.slug}" class="block">
-                <div class="relative h-44 rounded-xl overflow-hidden mb-4">
-                  <img src="${post.cover}" alt="${post.title}" class="w-full h-full object-cover" loading="lazy" />
-                  <span class="absolute top-3 left-3 bg-white/90 text-xs font-semibold text-brand-purple px-3 py-1 rounded-full">${post.category}</span>
+              <a href="blog/post.html?slug=${post.slug}" class="blog-card__link" aria-label="${post.title}">
+                <div class="blog-card__media">
+                  <img src="${post.cover}" alt="${post.title}" loading="lazy" />
+                  <span class="blog-card__badge">${post.category}</span>
                 </div>
-                <h3 class="font-semibold text-lg mb-2">${post.title}</h3>
-                <p class="text-sm text-gray-600 mb-4">${post.excerpt}</p>
-                <span class="text-brand-purple font-semibold text-sm">Lire l'article</span>
+                <div class="blog-card__body">
+                  <h3 class="heading heading--md">${post.title}</h3>
+                  <p>${post.excerpt}</p>
+                  <span class="blog-card__link">Lire l'article</span>
+                </div>
               </a>
             `;
             blogGrid.appendChild(card);
           });
       })
       .catch(() => {
-        blogGrid.innerHTML = '<p class="text-gray-600">Les articles seront bientôt disponibles.</p>';
+        blogGrid.innerHTML = '<p>Les articles seront bientôt disponibles.</p>';
       });
   }
 });
